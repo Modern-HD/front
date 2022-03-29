@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 태그</title>
+</head>
+<body>
+    <h4><a href="../index.html">상위 문서로 돌아가기</a></h4>
+    <!-- 주석처리 할 부분을 선택 후 ctrl + / : 주석처리, 해제 -->
+    <!-- ctrl + alt + 상하 방향키 : 라인 복사 -->
+    <h1>이미지 태그는 inline 속성을 갖는다</h1> 
+    <!-- 이미지의 사이즈 속성 : 숫자 => pixel, 숫자% : 화면의 크기 비율 -->
+    <img src="../images/HDwikilogo.png" width="50%">
+    <img src="../images/HDwikilogo.png" width="500px">
+    <a href="https://google.com" target="_blank">
+        <p>
+            <img src="../images/helplogo.png" width="200px" style="background-color: black;">
+            google로 이동하기
+        </p>
+    </a>
+    <img src="https://images.chosun.com/resizer/iksb_GxiHITk5APwQXOhvaiKYTc=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/MEDK65WNXBHK5OR7CXLNJXPMZA.jpg">
+    <h2>html 문서에 사용되는 이미지의 포맷은 jpg(jpeg), png 가 대표적</h2>
+    <h4>jpg: 손실 압축 포맷 : 이미지의 해상도가 손상되어도 용량을 많이 줄일 수 있어 가장 많이 사용됨</h4>
+    <h4>png: 무손실 압축포맷 : 이미지의 해상도의 손실을 줄이고 투명배경 이미지를 사용할 필요성이 있을때, 이미지의 용량이 크지만 화질이 뛰어남</h4>
+    <h4>이미지 파일들은 파일의 헤더영역에 image/jpeg, image/png 등의 형식을 갖고 있으므로 파일 학장자 명과 관계없이 헤더 정보로 판단함</h4>
+    <img src="../images/HDwikilogo.png" alt="아이유 였어" title="HD wiki">
+</body>
+</html>
