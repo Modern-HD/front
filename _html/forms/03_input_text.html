@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input type text</title>
+</head>
+<body>
+    <h4><a href="../index.html">상위 문서로 돌아가기</a></h4>
+    <form action="">
+        <div>
+            <label for="a">일반 텍스트 입력:</label><br>
+            <input type="text" name="" id="a">
+        </div>
+        <div>
+            <label for="b">텍스트 입력 글자수 제한 속성:</label><br>
+            <input type="text" name="" id="b" maxlength="5">
+        </div>
+        <div>
+            <label for="c">텍스트 읽기 전용 속성:</label><br>
+            <input type="text" name="uid" id="c" readonly value="abc">
+        </div>
+        <div>
+            <label for="d">입력창 기능 제한 속성:</label><br>
+            <input type="text" name="uid" id="d" disabled value="bcd">
+        </div>
+        <div>
+            <label for="e">입력 테스트 규칙 설정:</label><br>
+            <input type="text" id="e" pattern="정규식(regular expression)">
+        </div>
+        <button type="submit">전송</button>
+    </form>
+    <h3>readonly 속성이 적용된 데이터는 전송 가능</h3>
+    <h3>disabled 속성이 적용된 데이터는 전송 불가능</h3>
+</body>
+</html>
