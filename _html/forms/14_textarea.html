@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다중라인 입력란</title>
+</head>
+<body>
+    <h4><a href="../index.html">상위 문서로 돌아가기</a></h4>
+    <h1>input text는 단일라인, textarea는 다중라인 입력을 지원</h1>
+    <form action="">
+        <div>
+            <label for="content">상세내용 : </label><br>
+            <textarea name="content" id="content" cols="30" rows="5" style="resize: none;" placeholder="되나" maxlength="10"></textarea>
+        </div>
+        <button type="submit">전송</button>
+    </form>
+    <h3>스타일링은 css 영역에서 할 것, value영역에 어떤 값이 있으면 placeholder 적용 안됨</h3>
+    <h3>required, readonly, disabled 모두 적용가능</h3>
+</body>
+</html>

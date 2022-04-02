@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input type radio, checkbox</title>
+</head>
+<body>
+    <h4><a href="../index.html">상위 문서로 돌아가기</a></h4>
+    <h1>선택하는 형식의 input, 단일선택은 radio, 다중선택은 checkbox를 활용</h1>
+    <h3>name=value 형식으로 전송</h3>
+    <form action="">
+        <div>
+            <h4>내가 좋아하는 것</h4>
+            <input type="radio" name="favor" id="movie" value="영화" required>
+            <label for="movie">영화</label><br>
+            <input type="radio" name="favor" id="music" value="음악">
+            <label for="music">음악</label><br>
+            <input type="radio" name="favor" id="dance" value="춤">
+            <label for="dance">춤</label><br><br>
+            <button type="submit">전송</button>
+        </div>
+    </form>
+    <h3>checkbox는 name의 값이 같은 것 중 다중선택, 전송되는 데이터 역시 value의 값, 단 같은 name에 value가 여러개가 될 수 있기 때문에 서버측에서 전송받을 때 집합형태(배열, 리스트)형식으로 받아야 됨</h3>
+    <form action="">
+        <input type="checkbox" name="hobby" id="bb" value="야구">
+        <label for="bb">야구</label><br>
+        <input type="checkbox" name="hobby" id="sc" value="축구">
+        <label for="sc">축구</label><br>
+        <input type="checkbox" name="hobby" id="bw" value="볼링">
+        <label for="bw">볼링</label><br>
+        <input type="checkbox" name="hobby" id="wl" value="산책">
+        <label for="wl">산책</label><br><br>
+        <button type="submit">전송</button>
+    </form>
+</body>
+</html>
