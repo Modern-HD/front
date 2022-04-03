@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+
+        header, section, footer {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0px;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        #typing_area {
+            margin-bottom: 20px;
+        }
+
+        #typing_id {
+            margin-bottom: 10px;
+        }
+        button {
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LOGIN</h1>
+    </header>
+    <section>
+        <form action="">
+            <div id="typing_area">
+                <div id="typing_id">
+                    <input type="text" name="uid" id="uid" placeholder="아이디를 입력해주세요" required>
+                </div>
+                <div>
+                    <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요" required>
+                </div>
+            </div>
+            <div>
+                <button>로그인</button>
+            </div>
+            <div>
+                <button>회원가입</button>
+            </div>
+        </form>
+        <ul>
+            <li>
+                <a href="04_find_id.html">아이디 찾기 |</a>
+            </li>
+            <li>
+                <a href="03_find_pwd.html">비밀번호 찾기 |</a>
+            </li>
+            <li>비회원 주문조회</li>
+        </ul>
+    </section>
+    <footer>
+        <div>
+            <button>카카오 계정으로 로그인하기</button>
+        </div>
+        <div>
+            <button>네이버 계정으로 로그인하기</button>
+        </div>
+    </footer>
+</body>
+</html>

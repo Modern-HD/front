@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td {
+            border: 1px solid black;
+            width: 200px;
+            vertical-align: middle;
+        }
+
+        .td-1st {
+            text-align: center;
+            width:20px;
+            background-color: rgb(231, 252, 252) ;
+        }
+
+        .td-2st {
+            padding-left: 10px;
+            background-color: rgb(231, 252, 252) ;
+        }
+
+        .td-mid {
+            padding-left: 5px;
+            width: 600px;
+        }
+
+    </style>
+</head>
+<body>
+    <h4><a href="../index.html">Index로 돌아가기</a></h4>
+    
+    <header>
+        <h1>회원 가입</h1>
+    </header>
+    <section>
+        <form action="">
+            <table> <!-- 총 14행 필요-->
+                <tr> <!-- 1행: 아이디 -->
+                    <td class="td-1st"><img src="../images/required.png" alt="필수" height="15px"></td>
+                    <td class="td-2st"><label for="uid">아이디</label></td>
+                    <td class="td-mid" colspan="2"><input type="text" name="uid" id="uid" required> <button>중복검색</button> 영문</td>
+                </tr>
+                <tr> <!-- 2행: 비밀번호 -->
+                    <td class="td-1st"><img src="../images/required.png" alt="필수" height="15px"></td>
+                    <td class="td-2st"><label for="pw">비밀번호</label></td>
+                    <td class="td-mid" colspan="2"><input type="password" name="pw" id="pw" required><label for="repw">→재확인</label><input type="password" name="repw" id="repw"></td>
+                </tr>
+                <tr> <!-- 3행: 비밀번호 힌트 -->
+                    <td class="td-1st"><img src="../images/required.png" alt="필수" height="15px"></td>
+                    <td class="td-2st"><label for="pwht">비밀번호 힌트</label></td>
+                    <td class="td-mid" colspan="2"><input type="text" name="pwht" id="pwht" required>→비번분실-조회시 참고할 내용</td>
+                </tr>
+                <tr> <!-- 4행: 이름(본명) -->
+                    <td class="td-1st"><img src="../images/required.png" alt="필수" height="15px"></td>
+                    <td class="td-2st"><label for="myname">이름(본명)</label></td>
+                    <td class="td-mid" colspan="2"><input type="text" name="myname" id="myname" required>→한글</td>
+                </tr>
+                <tr> <!-- 5행: 닉네임(별명) -->
+                    <td class="td-1st"><img src="../images/required.png" alt="필수" height="15px"></td>
+                    <td class="td-2st"><label for="nick">닉네임(별명)</label></td>
+                    <td class="td-mid" colspan="2"><input type="text" name="nick" id="nick" required> <button>중복검색</button> 한글, 영문</td>
+                </tr>
+                <tr> <!-- 6행: 전자메일주소 -->
+                    <td class="td-1st"><img src="../images/required.png" alt="필수" height="15px"></td>
+                    <td class="td-2st"><label for="email">전자메일주소</label></td>
+                    <td class="td-mid"><input type="email" name="email" id="email" required style="width: 400px;"></td>
+                    <td><input type="checkbox" name="email_hid" id="email_hid"><label for="email_hid">비공개</label></td>
+                </tr>
+                <tr> <!-- 7행: 생년월일 -->
+                    <td class="td-1st"><img src="../images/required.png" alt="필수" height="15px"></td>
+                    <td class="td-2st"><label for="birth_year">생년월일</label></td>
+                    <td class="td-mid">
+                        <select name="birth_year" id="birth_year" required>
+                            <option value="" disabled selected>년</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2018</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
+                            <option value="1992">1992</option>
+                            <option value="1991">1991</option>
+                            <option value="1990">1990</option>
+                            <option value="1989">1989</option>
+                            <option value="1988">1988</option>
+                            <option value="1987">1987</option>
+                            <option value="1986">1986</option>
+                            <option value="1985">1985</option>
+                            <option value="1984">1984</option>
+                            <option value="1983">1983</option>
+                            <option value="1982">1982</option>
+                            <option value="1981">1981</option>
+                        </select> -
+                        <select name="birth_month" id="birth_month" required>
+                            <option value="" selected disabled>월</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select> -
+                        <select name="birth_day" id="birth_day" required>
+                            <option value="" selected disabled>일</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select> 
+                        <input type="radio" name="day_type" id="yang" value="양" checked required>
+                        <label for="yang">양</label>
+                        <input type="radio" name="day_type" id="eum" value="음">
+                        <label for="eum">음</label>
+                    </td>
+                    <td><input type="checkbox" name="birth_hid" id="birth_hid"><label for="birth_hid">비공개</label></td>
+                </tr>
+                <tr> <!-- 8행: 성별 -->
+                    <td class="td-1st"><img src="../images/required.png" alt="필수" height="15px"></td>
+                    <td class="td-2st"><label for="sex">성별</label></td>
+                    <td class="td-mid">
+                        <input type="radio" name="sex" id="male" value="남" required>
+                        <label for="male">남</label>
+                        <input type="radio" name="sex" id="female" value="여">
+                        <label for="female">여</label>
+                    </td>
+                    <td><input type="checkbox" name="sex_hid" id="sex_hid" disabled><label for="sex_hid">비공개</label></td>
+                </tr>
+                <!-- 여기서부터 필수항목 아님 -->
+                <tr> <!-- 9행: 우편번호 -->
+                    <td class="td-1st"></td>
+                    <td class="td-2st"><label for="ad_num_1st">우편번호</label></td>
+                    <td class="td-mid" colspan="2">
+                        <input type="text" name="ad_num_1st" id="ad_num_1st" style="width: 60px;"> -
+                        <input type="text" name="ad_num_2st" id="ad_num_2st" style="width: 60px;">
+                        <button>찾아보기</button>
+                    </td>
+                </tr>
+                <tr> <!-- 10행: 주소 -->
+                    <td class="td-1st"></td>
+                    <td class="td-2st"><label for="ad_text_1st">주소</label></td>
+                    <td class="td-mid">
+                        <p style="margin: 0;">
+                            <input type="text" name="ad_num_1st" id="ad_num_1st" style="width: 400px;">
+                        </p>
+                        <input type="text" name="ad_num_2st" id="ad_num_2st" style="width: 300px;">
+                        <label for="ad_num_2st">←나머지 주소</label>
+                    </td>
+                    <td><input type="checkbox" name="ad_text_hid" id="ad_text_hid"><label for="ad_text_hid">비공개</label></td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</body>
+</html>

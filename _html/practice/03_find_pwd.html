@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 찾기</title>
+    <style>
+
+        header, section, footer {
+            text-align: center;
+        }
+
+        #type_slc {
+            margin-bottom: 20px;
+        }
+
+        #call_slc {
+            margin-bottom: 20px;
+        }
+        
+        #typing_area {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>비밀번호 찾기</h1>
+    </header>
+    <section>
+        <form action="">
+            <div id="type_slc">
+                <select name="user_type" id="user_type">
+                    <option value="개인회원" selected>개인회원</option>
+                    <option value="기업">기업</option>
+                </select>
+            </div>
+            <div id="call_slc">
+                <input type="radio" name="call_type" id="call_email"><label for="call_email">이메일</label>
+                <input type="radio" name="call_type" id="call_phone"><label for="call_phone">휴대폰 번호</label>
+            </div>
+            <div id="typing_area">
+                <div>
+                    <input type="text" name="uid" id="uid" required placeholder="아이디를 입력해주세요">
+                </div>
+                <div>
+                    <input type="text" name="uname" id="uname" required placeholder="이름를 입력해주세요">
+                </div>
+                <div>
+                    <input type="email" name="uemail" id="uemail" required placeholder="가입시 등록하신 이메일을 입력하세요">
+                </div>
+            </div>
+    </section>
+    <footer>
+        <div>
+            <button>비밀번호 찾기</button>
+        </div>
+        <div>
+            <a href="04_find_id.html">아이디 찾기</a>
+        </div>
+    </footer>
+</body>
+</html>
