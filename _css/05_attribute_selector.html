@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 선택자</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/backbt.css">
+    <style>
+        input[type=text] {
+            background-color: antiquewhite;
+        }
+        input[type=password]:focus {
+            background-color: burlywood;
+        }
+        button[type=submit] {
+            width: 100px;
+            height: 50px;
+            border: 3px dashed red;
+            background-color: tomato;
+            color: white;
+            font-size: 1.5em;
+            border-radius: 5px;
+        }
+        button[type=submit]:hover {
+            border: 3px dashed blueviolet;
+            background-color: purple;
+            color: white;
+        }
+        button[class=btn-primary] {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>html 태그가 갖고 있는 속성을 선택하는 문법</h1>
+    <form action="">
+        <div>
+            <label for="uid">User ID:</label><br>
+            <input type="text" name="uid" id="uid" class="login" placeholder="8자이상" required>
+        </div>
+        <div>
+            <label for="pwd">User PW:</label><br>
+            <input type="password" name="pwd" id="pwd" class="login" placeholder="8자이상" required>
+        </div>
+        <div>
+            <label for="uid">User PIN:</label><br>
+            <input type="password" name="pin" id="pin" class="login" placeholder="숫자만" required>
+        </div>
+        <button type="button" class="btn-primary">일반버튼</button>
+        <button type="submit" class="btn">로그인</button>
+        <button type="reset">취소버튼</button>
+    </form>
+    <a href="index.html">
+        <div class="backbt">
+            <i class="fa fa-undo fa-2x"></i>
+        </div>
+    </a>
+</body>
+</html>

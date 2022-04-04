@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>의사 선택자</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/backbt.css">
+    <style>
+        a {
+            text-decoration: none;
+            color:black;
+        }
+
+        a:hover {
+            border-radius: 10px;
+            color: darkgray;
+            background-color: antiquewhite;
+        }
+
+        a:link {
+            color: black;
+        }
+
+        a:active {
+            color: tomato;
+        }
+/*
+        a:visited {
+            a 태그에 기본 배경색이 있어야만 의사선택자 적용
+        }
+*/
+        ul li:first-child {
+            color: darkolivegreen;
+        }
+
+        ol li:nth-child(3n+2) {
+            /* odd:홀수, 2n+1: 홀수번쪠, even, 2n : 짝수번째 선택
+            괄호안의 파라미터에는 수열공식을 넣을 수 있다. */
+            color: red;
+        }
+        
+        ol li::after {
+            content: " 번째";
+        }
+
+        ol li::before {
+            content: "LI 태그";
+        }
+        
+        .link::after {
+            content: "로 이동";
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        대상 노드에 이벤트나 효과를 적용하게 된다는 가정하에 만들어지는 선택자
+    </h1>
+    <h3>
+        <pre>
+    <em>presentation tag</em>
+    공백, 엔터 효과 그대로 적용, 내부에서 작된 태그도 그대로 작용
+    인용구, 시, 가사 등을 표현할 때 주로 사용
+    a:hover MUST come after a:link and a:visited
+    a:active MUST come after a:hover
+        </pre>
+    </h3>
+    <ul>
+        <li class="link">
+            <a href="https://www.naver.com">네이버</a>
+            (https://www.naver.com)
+        </li>
+        <li class="link">
+            <a href="https://www.daum.net">다음</a>
+        </li>
+        <li class="link">
+            <a href="https://www.google.com">구글</a>
+        </li>
+        <li class="link">
+            <a href="https://www.nate.com">네이트</a>
+        </li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ol>
+    <a href="index.html">
+        <div class="backbt">
+            <i class="fa fa-undo fa-2x"></i>
+        </div>
+    </a>
+</body>
+</html>

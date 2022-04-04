@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결합, 조합 선택자</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/backbt.css">
+    <style>
+        /* 이런 방식으로는 사용하지 말 것*/
+        /*
+        h1, div li > a {}
+        h1 > a span .a {} */
+
+        /* ,는 and 조건 */
+        h1, div { 
+            border: 2px dashed red;
+            margin-bottom: 10px;
+        }
+        /*div안에 있는 ul에 적용*/
+        div ul { 
+            border: 1px dotted green;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        div a {
+            color: coral;
+        }
+        /*자식 노드 선택*/
+        div > a {
+            background-color: black;
+        }
+        ol #first {
+            font-size: 2em;
+        }
+        /* a이면서 links클래스 선택 */
+        a.links {
+            background-color: aqua;
+        }
+        ol a#first {
+            color:violet;
+        }
+        .links.first {
+            background-color: chartreuse;
+        }
+        /* 이건 툴을 이용해서 생성된 코드 일 가능성이 높음 */
+        /*
+        body > div > ul > li > a {} */
+
+    </style>
+</head>
+<body>
+    <h1>
+        선택자를 다수개 조합 하여 선택하는 문법
+    </h1>
+    <div>
+        <a href="">div 태그의 자식 노드</a>
+        <ul class="links">
+            <li>
+                <a href="" id="first" class="links first">링크 테스트</a>
+            </li>
+            <li>
+                <a href="" class="links">링크 테스트</a>
+            </li>
+            <li>
+                <a href="" id="last" class="links">링크 테스트</a>
+            </li>
+        </ul>
+        <ol class="links">
+            <li>
+                <a href="" id="first" class="">링크 테스트</a>
+            </li>
+            <li>
+                <a href="" class="">링크 테스트</a>
+            </li>
+            <li>
+                <a href="" id="last" class="">링크 테스트</a>
+            </li>
+        </ol>
+    </div>
+    <ul class="links">
+        <li>
+            <a href="" id="first" class="">링크 테스트</a>
+        </li>
+        <li>
+            <a href="" class="">링크 테스트</a>
+        </li>
+        <li>
+            <a href="" id="last" class="">링크 테스트</a>
+        </li>
+    </ul>
+    <h3>
+        id는 문서 내에서 유니크하게 사용해야 선택자 사용을 혼란을 줄일 수 있다
+    </h3>
+    <a href="index.html">
+        <div class="backbt">
+            <i class="fa fa-undo fa-2x"></i>
+        </div>
+    </a>
+</body>
+</html>
