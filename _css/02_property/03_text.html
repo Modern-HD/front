@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Property</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/backbt.css">
+    <style>
+        body {
+            margin: 0;
+        }
+        h1 {
+            border: 1px solid red;
+            color: orangered;
+            text-align: center;
+        }
+        p {
+            border: 1px solid red;
+            width:60%;
+            margin:auto;
+        }
+        a {
+            text-decoration: none; /* underline, overline */
+        }
+        .shadow {
+            color: white;
+            text-shadow: 0px 0px 5px grey;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <p>
+            html의 대부분의 컨텐츠는 텍스트!
+        </p>
+    </h1>
+    <h3><a href="#">어디론가 링크</a></h3>
+    <ul>
+        <li>text-indent: 들여쓰기</li>
+        <li>line-height: 글자 기준선 높이</li>
+        <li>word-spacing: 글자간 간격</li>
+        <li>white-space: 컨텐츠 감싸기 여부, 방법</li>
+    </ul>
+    <ul>
+        <li>text-shadow: 좌측으로부터 ?px 상단으로부터 ?px 번짐정도 ?px 색상</li>
+        <li>멀티(중첩) 효과는, (콤마)로 계속 이어갈 수 있다</li>
+        <li>그래픽 효과는 디자인영역의 감각이 있어야 하므로 참고해서 만드는 것을 추천</li>
+    </ul>
+
+    <h1 class="shadow">텍스트 쉐도우</h1>
+    <a href="index.html">
+        <div class="backbt">
+            <i class="fa fa-undo fa-2x"></i>
+        </div>
+    </a>
+</body>
+</html>

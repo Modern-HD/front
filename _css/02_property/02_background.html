@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경색, 배경 이미지</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/backbt.css">
+    <style>
+
+        div.container {
+            width: 50%;
+            margin: 0;
+            padding: 0;
+            border: 1px solid red;
+        }
+        .container > div:first-child {
+            width: 300px;
+            height: 300px;
+            background-color: blueviolet;
+            color: white;
+        }
+        .container > div:nth-child(2) {
+            width: 600px;
+            height: 600px;
+            background-color: rgba(255, 255, 0, .3)
+        }
+        .container > div:nth-child(3) {
+            border: 1px dotted blue;
+            color: black;
+            width: 200px;
+            height: 100px;
+            background-color: darkgray;
+            background-image: url("../../_html/images/HDwikilogo.png");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+        }
+        .container > div:last-child {
+            width: 300px;
+            height: 300px;
+            background-color: #111;
+        }
+        .container > div:last-child > div:nth-child(1) {
+            width: 300px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+        .container > div:last-child > div:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            background-color: navajowhite;
+        }
+        .container > div:last-child > div:nth-child(3) {
+            width: 300px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+        h1 {
+            background-image: url(../../_html/images/HDwikilogo.png);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <h1>대부분의 태그는 배경 속성을 갖는다. Box Model을 기반</h1>
+    <div class="container">
+        <div>
+            background-color
+        </div>
+        <div>
+            <p>
+                background image + opacity
+            </p>
+            배경색과 투명도는 div 태그 안의 모든 태그에 영향을 미친다.
+        </div>
+        <div>
+            background image: 이미지 크기
+        </div>
+        <div>
+            <div>여기에 보통 NAV, Menu 구성 </div>
+            <div></div>
+            <div>여기에 보통 Footer 구성</div>
+        </div>
+    </div>
+    <a href="index.html">
+        <div class="backbt">
+            <i class="fa fa-undo fa-2x"></i>
+        </div>
+    </a>
+</body>
+</html>
