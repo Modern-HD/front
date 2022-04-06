@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/backbt.css">
+    <title>경계선</title>
+    <style>
+        /*
+        h1, h3, ol, div, h4, p, ul, li {
+            
+            border: 1px solid red; 축약형(short-hand)
+            border-width: 1px;
+            border-style: soild;
+            border-color: red; 
+        } */ 
+        h1 {
+            /* 경계선은 border의 기본 3개 속성을 우선 적용한 후 스타일링을 한다 */
+            border: 3px solid red;
+            border-radius: 5px;
+        }
+        h3 {
+            border: 3px dotted green;
+        }
+        ol {
+            list-style: none;
+        }
+        ol li {
+            border-width: 10px;
+            border-color: #555;
+            border-left-style: solid;
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        .list {
+            border-width: 1px 5px 15px 20px; /* Top Right Bottom Left */
+            border-style: solid dashed dotted double;
+            border-color: red green blue yellow;
+        }
+        h4 {
+            border: 3px solid red;
+            border-radius: 5px 10px 15px 20px; /* ↖ ↗ ↘ ↙ */
+        }
+        ol {
+            border-width: 1px 20px; /* 상하 좌우 */
+            border-style: solid double;
+            border-color: red yellow;
+            border-radius: 5px 50px; /* ↖↘ ↗↙ */
+        }
+        p {
+            height: 200px;
+            border-width: 3px 6px 9px; /* 상 좌우 하 */
+            border-style: dotted solid dashed;
+            border-color: red darkgoldenrod green;
+            border-radius: 5px 20px 30px;
+        }
+        .bg {
+            width: 200px;
+            height: 300px;
+            border-radius: 10px;
+            background-image: url(../../_html/images/KakaoTalk_20211011_144931673_25.jpg);
+            background-position: center center;
+            background-size: 120%;
+        }
+    </style>
+</head>
+<body>
+    <h1>경계선은 html element들간 영역을 구분하는 기준이 됨</h1>
+    <h3>경계선은 box model을 기준으로 거의 모든 태그에 존재함</h3>
+    <ol>
+        <li>경계선 두께 : boder-width</li>
+        <li>경계선 색상 : border-color</li>
+        <li>경계선 모양 : border-style</li>
+        <li>경계선 모서리 곡률: border-radius</li>
+    </ol>
+    <div class="container">
+        <h4 class="title">Title</h4>
+        <p class="content">Content</p>
+        <ul class="list">
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+        </ul>
+        <div class="bg">
+            
+        </div>
+    </div>
+    <a href="index.html">
+        <div class="backbt">
+            <i class="fa fa-undo fa-2x"></i>
+        </div>
+    </a>
+</body>
+</html>

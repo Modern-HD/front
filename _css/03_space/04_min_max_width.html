@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/backbt.css">
+    <title>min-width, min-width</title>
+    <style>
+        .mw {
+            border: 1px solid red;
+            max-width: 500px;
+        }
+        .nw {
+            border: 1px solid red;
+            min-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>max-width, min-width는 비슷한 개념처럼 보이지만 사용목적이 다르다</h1>
+    <h3>max-width는 엘리먼트가 갖을 수 있는 최대 크기값이므로 화면(브라우저)의 크기가 커지더라도 엘리먼트으이 크기가 지정된 크기보다 증가되지 않는다. 
+    즉 레이아웃의 크기를 적절한 크기로 유지시키고 싶을 때 주로 사용</h3>
+    <h3>min-width는 엘리먼트가 지켜져야 하는 최소 크기값을 지정하는 것이므로 엘리먼트 내의 컨텐츠의 손상을 막을 수 있는 크기를 지정할 때 주로 사용
+        즉 화면의(브라우저) 크기가 줄어들더라도 엘리먼트의 크기는 지정 크기보다 적어지지않는다.
+    </h3>
+    <h2>두 속성 모두 반응형 화면이 예상될 떄 사용하는 것으로 화면의 보여질 레이어웃과 컨텐츠의 모양을 적절하게 조절하기 위해 사용함</h2>
+
+    <div class="mw">max-width는 엘리먼트가 갖을 수 있는 최대 크기값이므로 화면(브라우저)의 크기가 커지더라도 엘리먼트으이 크기가 지정된 크기보다 증가되지 않는다. 
+        즉 레이아웃의 크기를 적절한 크기로 유지시키고 싶을 때 주로 사용</div>
+    <br>
+    <div class="nw">min-width는 엘리먼트가 지켜져야 하는 최소 크기값을 지정하는 것이므로 엘리먼트 내의 컨텐츠의 손상을 막을 수 있는 크기를 지정할 때 주로 사용
+        즉 화면의(브라우저) 크기가 줄어들더라도 엘리먼트의 크기는 지정 크기보다 적어지지않는다.</div>
+    <a href="index.html">
+        <div class="backbt">
+            <i class="fa fa-undo fa-2x"></i>
+        </div>
+    </a>
+</body>
+</html>
