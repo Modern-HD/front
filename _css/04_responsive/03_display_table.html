@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display: table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .title_item {
+            display: block;
+            font-size: 1em;
+        }
+        .title_item, .desc_item {
+            margin-top: 10px;
+        }
+        .desc_item {
+            font: 0.75em;
+        }
+        .boxwrap {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+            background-color: steelblue;
+        }
+        .boxwrap .box {
+            border: 1px solid white;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            padding: 10px;
+        }
+        .boxwrap img {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        display: flex와 비슷하고 layout에 적극적으로 활용되고 있음
+    </h1>
+    <div class="boxwrap">
+        <div class="box">
+            <span class="thumb">
+                <img src="images/cat1.jpg" alt="">
+            </span>
+            <strong class="title_item">제목</strong>
+            <p class="desc_item">설명부분 ㅁㅇㄴㄹ ㅁㄴㅇㄹ <br>
+                ㅁㄴㅇㄹ ㅁㄴㅇㄹ ㅁㄴㅇㄹ </p>
+        </div>
+        <div class="box">
+            <span class="thumb">
+                <img src="images/cat2.jpg" alt="">
+            </span>
+            <strong class="title_item">제목2</strong>
+            <p class="desc_item">설명부분 ㅁㅇㄴㄹ ㅁㄴㅇㄹ <br>
+                ㅁㄴㅇㄹ ㅁㄴㅇㄹ ㅁㄴㅇㄹ </p>
+        </div>
+        <div class="box">
+            <span class="thumb">
+                <img src="images/CSS3_logo.svg" alt="">
+            </span>
+            <strong class="title_item">제목3</strong>
+            <p class="desc_item">설명부분 ㅁㅇㄴㄹ ㅁㄴㅇㄹ <br>
+                ㅁㄴㅇㄹ ㅁㄴㅇㄹ ㅁㄴㅇㄹ </p>
+        </div>
+        <div class="box">
+            <span class="thumb">
+                <img src="images/HTML5_Logo.svg" alt="">
+            </span>
+            <strong class="title_item">제목4</strong>
+            <p class="desc_item">설명부분 ㅁㅇㄴㄹ ㅁㄴㅇㄹ <br>
+                ㅁㄴㅇㄹ ㅁㄴㅇㄹ ㅁㄴㅇㄹ </p>
+        </div>
+    </div>
+</body>
+</html>

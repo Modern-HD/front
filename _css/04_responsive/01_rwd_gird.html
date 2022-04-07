@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/backbt.css">
+    <title>반응형 그리드</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100%;
+        }
+        .header {
+            height: 60px;
+            background-color: silver;
+        }
+        .main-img {
+            height: 350px;
+            background-color: whitesmoke;
+        }
+        .subject {
+            height: 320px;
+            background-color: tomato;
+        }
+        .content {
+            height: 380px;
+            background-color: tan;
+        }
+        .sub {
+            height: 200px;
+            background-color: pink;
+        }
+        .footer {
+            height: 200px;
+            background-color: darkcyan;
+        }
+        @media screen and (min-width: 768px) {
+            .header {
+                height: 60px;
+            }
+            .main-img {
+                height: 55px;
+            }
+            .subject {
+                height: 320px;
+            }
+            .content {
+                width: 50%;
+                float: left;
+                height: 400px;
+            }
+            .sub {
+                width: 50%;
+                float: right;
+                height: 400px;
+            }
+            .footer {
+                clear: both;
+                height: 200px;
+            }
+        }
+        @media screen and (min-width: 1440px) {
+            .header {
+                height: 60px;
+            }
+            .main-img {
+                height: 600px;
+            }
+            .subject {
+                width: 50%;
+                float: left;
+                height: 400px;
+            }
+            .content {
+                width: 50%;
+                float: right;
+                height: 200px;
+            }
+            .sub {
+                width: 50%;
+                float: right;
+                height: 200px;
+            }
+            .footer {
+                clear: both;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="main-img"></div>
+    <div class="subject"></div>
+    <div class="content"></div>
+    <div class="sub"></div>
+    <div class="footer"></div>
+    <a href="index.html">
+        <div class="backbt">
+            <i class="fa fa-undo fa-2x"></i>
+        </div>
+    </a>
+</body>
+</html>
