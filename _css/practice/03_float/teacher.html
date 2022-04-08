@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Waiting</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            height: 748px;
+            background-image: url(images/bgi.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100%;
+            text-align: center;
+        }
+        .cover {
+            width: 100%;
+            height: 748px;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .inner {
+            width: 45%;
+            background-color: white;
+            margin: auto;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        img {
+            width: 7%;
+            margin-top: 20px;
+        }
+        .inner > p {
+            font-size: 0.5em;
+            margin-bottom: 20px;
+        }
+        .bt {
+            border-top: 1px solid #999;
+            background-color: #ddd;
+            padding-bottom: 10px;
+        }
+        .bt > p {
+            font-size: 0.25em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cover"></div>
+        <div class="inner">
+            <img src="images/nikelogo.png" alt="">
+            <h2>사용자 수가 많아 접속이 지연되고 있습니다. <br> 잠시 기다려주세요.</h2>
+            <i class="fa fa-spinner"></i>
+            <p>접속이 어려운 경우 메인으로 자동 이동합니다.</p>
+            <div class="bt">
+                <p>
+                    관련 문의 사항은 고객샌터에 문의해주시기 바랍니다.<br>
+                    고객 삼당전화 123-456-7890
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

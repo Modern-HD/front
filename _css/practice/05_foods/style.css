@@ -1,0 +1,65 @@
+@font-face {
+    font-family: jua;
+    src: url(font/Jua-Regular.ttf)
+}
+body {
+    margin: 0;
+    font-family: jua;
+}
+.container {
+    padding-top: 72px;
+    background-color: #F0E8D9;
+    text-align: center;
+    color: #58595B;
+    padding-bottom: 20px;
+}
+.menuimg img {
+    width: 300px;
+    height: 200px;
+    margin: 0;
+}
+nav img {
+    box-shadow: 0 0 3px black;
+    background-color: white;
+    border-radius: 10px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+.menu {
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 0px auto 50px auto;
+    overflow: hidden;
+    box-shadow: 0 0 3px grey;
+}
+.menu:hover {
+    box-shadow: 0 0 5px yellow;
+}
+h1 {
+    font-size: 64px;
+    margin: 0;
+}
+h2 {
+    margin-top: 30px;
+    font-size: 32px;
+    margin-bottom: 75px;
+}
+h3 {
+    font-size: 32px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.menutext {
+    margin-bottom: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+.buy {
+    font-size: 16px;
+    color: #0000ee;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
