@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .navBar {
+            position: fixed;
+            padding: 0;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            width: 100%;
+            height: 75px;
+            z-index: 1000;
+        }
+        .navBar > img {
+            width: 10%;
+            float: left;
+            display: block;
+        }
+        .navBar > ul {
+            float: right;
+        }
+        .list {
+            display: inline-block;
+            font-size: 16px;
+            color: black;
+            padding: 10px;
+        }
+        .list:hover {
+            background-color: #eee;
+            cursor: pointer;
+        }
+        .container {
+            position: relative;
+            top: 75px;
+            background-image: url('images/backimg.jpg');
+            background-size: cover;
+            background-position: center center;
+            text-align: center;
+            z-index: 0;
+        }
+        .cover {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            background-color: rgba(0, 0, 255, 0.3);
+        }
+        .info {
+            margin: 25% auto;
+            color: white;
+        }
+        .info > a {
+            text-decoration: none;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="navBar">
+        <img src="images/csslogo.png" alt="">
+        <ul>
+            <li class="list">로그인</li>
+            <li class="list">회원가입</li>
+            <li class="list">수업</li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="cover"></div>
+        <div class="info">
+            <h1><strong>Cording</strong>, 기술이 아닙니다. <Strong>습관</Strong>입니다.</h1>
+            <h2>Programming은 공부가 아닙니다.</h2>
+        </div>
+    </div>
+</body>
+</html>

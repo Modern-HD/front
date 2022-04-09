@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        nav {
+            width: 100%;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            float: right;
+            margin-right: 10px;
+        }
+        li {
+            padding: 20px 10px;
+            display: inline;
+        }
+        section {
+            clear: both;
+        }
+        a {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+        li:hover {
+            background-color: #eee;
+        }
+        .inner h1 {
+            font-weight: normal;
+            font-size: 2em;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .inner {
+            position: fixed;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            color: white;
+        }
+        .logo {
+            float: left;
+            height: 56px;
+        }
+        .logo img {
+            height: 56px;
+        }
+        .cover, .backimg {
+            width: 100%;
+            height: 748px;
+        }
+        .cover {
+            background-color:cornflowerblue;
+            opacity: 0.5;
+        }
+        .backimg {
+            background-image: url(images/backimg.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .bt {
+            position: absolute;
+            left: 50%;
+            width: 150px;
+            height: 40px;
+            border-radius: 10px;
+            transform: translate(-50%, 0);
+            margin-top: 30px;
+            background-color: white;
+            color: cornflowerblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo"><img src="images/csslogo.png" alt="logo"></div>
+            <div class="menu">
+                <ul>
+                    <li>수업</li>
+                    <li>회원가입</li>
+                    <li>로그인</li>
+                </ul>
+            </div>
+        </nav>
+        <section>
+            <div class="backimg">
+                <div class="cover"></div>
+            </div>
+            <div class="inner">
+                <h1><span class="bold">Cording</span>, 기술이 아닙니다. <span class="bold">습관</span>입니다.</h1>
+                <p>programming은 공부가 아닙니다. 생활입니다.</p>
+                <div class="bt">
+                    <a href="">더 알아보기</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

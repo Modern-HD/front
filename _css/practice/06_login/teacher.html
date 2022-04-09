@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        /* * {
+            box-sizing: border-box; 실무에서 css 설정에 거의 작성 되어 있음
+        } */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(27, 188, 155);
+        }
+        .container {
+            width: 300px;
+            position: absolute;
+            margin: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: aliceblue;
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        input { 
+            padding: 10px;
+        }
+        .text-field {
+            font-size: 0.7em;
+            border: 0px;
+            width: 280px; /* box-sizing: border-box; 설정 후 => 100% */
+            margin: 0px 0px 10px;
+            border: 0;
+            border-radius: 5px;
+        }
+        .btn-input {
+            font-size: 0.75em;
+            color: white;
+            background-color: rgb(27, 188, 155);
+            width: 100%;
+            margin: 0px 0px 30px;
+            border: 0;
+            border-radius: 5px;
+        }
+        .links {
+            text-align: center;
+            margin: 0px;
+            font-size: 0.75em;
+            color: silver;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <input type="text" class="text-field" placeholder="아이디">
+            <input type="password" class="text-field" placeholder="비밀번호">
+            <input type="button" class="btn-input" value="로그인">
+        </form>
+        <a href="" class="links">비밀번호를 잊어버리셨나요?</a>
+    </div>
+</body>
+</html>

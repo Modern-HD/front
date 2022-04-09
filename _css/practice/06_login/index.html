@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: aquamarine;
+        }
+        .login {
+            width: 260px;
+            border-radius: 10px;
+            background-color: #eee;
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+        #uid, #pwd {
+            width: 240px;
+            height: 15px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .bt {
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 260px;
+            height: 35px;
+            background-color: aquamarine;
+            margin-bottom: 30px;
+            color: white;
+        }
+        .bt:hover {
+            background-color: lightgreen;
+        }
+        a {
+            padding-bottom: 20px;
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <form action="">
+            <div>
+                <input type="text" name="uid" id="uid" placeholder="아이디" required>
+            </div>
+            <div>
+                <input type="password" name="pwd" id="pwd" placeholder="비밀번호" required>
+            </div>
+            <div>
+                <button type="submit" class="bt">로그인</button>
+            </div>
+        </form>
+        <div>
+            <a href="">비밀번호를 잊어버리셨나요?</a>
+        </div>
+    </div>
+</body>
+</html>
