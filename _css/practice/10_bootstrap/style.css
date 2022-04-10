@@ -1,0 +1,61 @@
+.my-slide {
+    margin-bottom: 50px;
+}
+.my-slide .carousel-inner img {
+    height: 500px;
+    object-fit: cover;
+}
+.my-slide .carousel-caption > h3 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 18px;
+}
+.my-slide .carousel-caption > p {
+    font-size: 22px;
+    margin-bottom: 38px;
+}
+.my-slide .carousel-caption > .btn {
+    color: white;
+    padding: 10px 30px;
+    background-color: #5900E7;
+    margin: 0 0 100px 0;
+    font-size: 16;
+}
+.my-alert {
+    margin-bottom: 16px;
+}
+.my-tuter-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+.my-tuter {
+    text-decoration: none;
+    color: #4a4a4a;
+    margin: 0 15px 20px 15px;
+    display: block;
+    width: 250px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+.my-tuter-img > img {
+    width: 250px;
+    height: 175px;
+    object-fit: cover;
+}
+.my-tuter-text > h4 {
+    font-size: 18px;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 10px;
+}
+.my-tuter-text > p {
+    font-size: 13px;
+    padding: 0 10px;
+    margin: 0 0 10px 0;
+}
+.my-tuter-text > p > img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
