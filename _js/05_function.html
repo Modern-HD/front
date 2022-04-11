@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+    <script>
+        function mySecondFunction() {
+            console.log("두번째 함수도 만들어봤지요");
+            console.log(`head태그 안에 작성해봤지요`);
+            console.log('html문서가 로드 되면서 함수가 선언 되지요');
+            console.log("head태그에 선언된 함수들은 초기설정 및 선언식 형태를 위주로 작성하는게 일반적임");
+        }
+    </script>
+    <script src="05_function.js"></script>
+    <script>
+        outerFunc();
+    </script>
+</head>
+<body>
+    <h1>특정 기능을 수행하기 위한 코드 실행기 - 호출되어야만 작동</h1>
+    <ul>
+        <li>일반적으로 function 이라는 키워드를 사용하여 선언</li>
+        <li>function 키워드 뒤에 기능을 함축설명하는 의미의 함수명을 작성</li>
+        <li>함수명 뒤에 ()를 작성한 후 선택적으로 파라미터로 사용할 변수를 선언할 수 있다.</li>
+        <li>이때 파라미터의 타입과 형식은 자유도가 높아 다양한 형태로 사용이 가능하다</li>
+        <li>() 뒤에 {}로 함수의 영역을 지정한 후 그 안에 기능 로직을 작성하면 된다</li>
+        <li>기능로직에는 return이라는 키워드를 사용하여 함수의 종료시점을 지정할 수 있다.</li>
+        <li>return은 함수 실행 종료 역할을 함과 동시에 특정 결과값을 호출한 시점의 코드로 반환할 수 있다</li>
+        <li>함수의 선언 방법은 크게 3가지를 사용할 수 있는데 사용 목적이 조금씩 차이가 있으니 숙지해야함!</li>
+    </ul>
+    <script scr="05_function2.js"></script>
+    <script>
+        // 함수선언식
+        function myFirstFunc() {
+            console.log('이 함수는 제가 처음으로 만들어본 함수입니다.')
+            console.log(`신기할 건 없지만 앞으로 신기한게 많이 나와요`)
+            console.log("모두 알고 나면 자바스크립트에서 함수가 맡고 있는 역할이 많다는 걸 알게 되요")
+            console.log('그건 그렇고 도대체 왜 이런걸 만드나요?')
+        }
+
+        myFirstFunc();
+
+        // 같은 코드를 편리하게 재실행 할 수 있다.
+        myFirstFunc();
+        mySecondFunction();
+    </script>
+</body>
+</html>

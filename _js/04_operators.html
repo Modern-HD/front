@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+<body>
+    <h1>
+        데이터를 원하는 형태로 변경 및 판단하기 위한 코드
+    </h1>
+    <ul>
+        <li>
+            산술연산자: 사칙연산, 나머지연산, 제곱, 루트... 등등
+        </li>
+        <li>
+            대입연산자: 자체 값을 연산 후 다시 대입, 재귀적 연산이라고도 함
+        </li>
+        <li>
+            비교연산자: 이상, 이하, 미만, 초과, 같음, 다름
+        </li>
+        <li>
+            논리연산자: and, or, not and, not or, not
+        </li>
+        <li>
+            증감연산자: 미리 정해진 일정 크기를 증가 혹은 감소
+        </li>
+        <li>
+            비트연산자: 비트 단위로 연산(웹 분야에서는 활용도가 낮음)
+        </li>
+        <li>
+            그외 연산자: 특정 목적이나 형태를 갖는 연산자...
+        </li>
+    </ul>
+    <script>
+        // 산술연산자
+        let num1 = 1000;
+        let num2 = 5;
+        let resultAdd = num1 + num2;
+        console.log('resultAdd: '+resultAdd+'');
+        let resultSub = num1 - num2;
+        console.log('resultSub: '+resultSub+'');
+        let resutMulti = num1 * num2;
+        console.log(`resutMulti: ${resutMulti}`);
+        let resultDiv = num1 / num2;
+        console.log(`resultDiv: ${resultDiv}`);
+        let num3 = 5.0;
+        let resultDiv2 = num1 / num3;
+        console.log(`resultDiv2: ${resultDiv2}, typeof: ${typeof resultDiv2}`);
+
+        let num4 = 1000.5;
+        let resultDiv3 = num4 / num3;
+        console.log(`resultDiv3: ${resultDiv3}, typeof: ${typeof resultDiv3}`)
+
+        console.log(`10%3=${10%3}`); // 10을 3으로 나눈 나머지
+        console.log(`10 ** 3 = ${10 ** 3}`); //10의 3제곱
+
+        // 대입 연산자
+        num1 = 100;
+        num2 = 5;
+        
+        // num1 = num1 + num2;
+        // num1 += num2;
+        console.log(`${num1} += ${num2} = ${num1 += num2}`); //num1 = 105
+
+        // num1 = mun1 - num2;
+        //num1 -= num2;
+        console.log(`${num1} -= ${num2} = ${num1 -= num2}`); //num1 = 100
+
+        // num1 = num1 * num2;
+        // num1 *= num2;
+        console.log(`${num1} *= ${num2} = ${num1 *= num2}`); //num1 = 500
+
+        // num1 = num1 / num2;
+        //num1 /= num2;
+        console.log(`${num1} /= ${num2} = ${num1 /= num2}`); //num1 = 100
+
+        // num1 = num1 ** num2;
+        // num1 **= num2;
+        console.log(`${num1} **= ${num2} = ${num1 **= num2}`); //num1 = 10000000000
+
+        console.log(`sqareRoot num1 = ${Math.sqrt(num1)}`);
+
+        // num1 = num1 % num2;
+        // num1 %= num2;
+        console.log(`${num1} %= ${num2} = ${num1 %= num2}`); //num1 = 0
+        
+        // 증감연산자
+        num1 = 100;
+        console.log("1:", num1++) // 100
+        num1++; // 1을 더한다
+        console.log("2:", num1); // 102
+        num1--; // 1을 뺀다
+        console.log("3:", num1); // 101
+        console.log('증감연산자가 변수 뒤쪽에 붙어있으면 증감연산은 다음 호출 때 적용되어서 출력')
+        console.log("4:", ++num1); // 102
+        console.log("5:", num1); // 102
+        console.log("6:", --num1); // 101
+
+        //비교연산자 : 연산 결과는 무조건 boolean type : true or flase
+        console.log(num1 > num2); // true
+        console.log(num1 < num2); // false;
+        console.log(num1 >= num2); // true
+        console.log(num1 <= num2); // false;
+        console.log(num1 == num2); // false;
+        num1 = 10;
+        num2 = 10;
+        console.log(num1 == num2); // true;
+        num2 = '10';
+        console.log(num1 == num2); // true; 값만 비교
+        console.log(num1 === num2); // false; 값과 타입 모두 비교
+
+        console.log(num1 != num2); // false; 값만 비교
+        console.log(num1 !== num2); // true; 값만 비교
+    
+        console.log('========================')
+        num1 = 'abcdeg';
+        num2 = 'abcdefg';
+        // 문자의 같은 자리수의 아스키 코드값이 다를 때까지 비교
+        console.log(num1 > num2); // true : 문자의 같은 자리수의 아스키 코드값 비교
+        console.log('a'>'A');
+
+        // 논리연산자: 좌측과 우측의 boolean 상태를 판단하여 조건만족을 판단함
+        console.log(true && true); // and 연산자: 좌측과 우측이 모두 true -> true
+        console.log(true && false); //  좌측과 우측 중 한쪽이 false면 -> false
+        console.log(false && true); // false
+        console.log(false && false); // false
+        // 연산의 순서에 의한 요율성 증가 -> && 연산자는 좌측이 true이면 우측연산 진행
+        // 좌측 false이면 연산 중지 -> 다음 라인 코드 실행
+
+        console.log(true || true); // or 연산자: 좌측과 우측 중 한개라도 true -> true
+        console.log(true || false); // true
+        console.log(false || true); // true
+        console.log(false || false); // false
+        // 연산의 순서에 의한 효율성 증가 -> || 연산자는 좌측이 false이면 우측연산 진행
+        // 좌측이 true이면 연산 중지 -> 다음 라인 코드 입력
+
+        // ! 연산자: not, 부정 연산자: 현재의 값을 반대로 바꿔서 연산
+        console.log(!true); // false
+        console.log(!!true); // true
+        console.log(!(!true)); // true
+
+        // 변수의 선언 및 초기화 방법 2
+        let n1, n2, n3; // 한 줄 선언
+        let l1=100, l2=200, l3=300; // 한 줄 선언 및 초기화
+        n1=10, n2=20, n3=30; // 한 줄 초기화
+
+        // 연산의 실행 횟수 5번
+        console.log(!(num1 == num2) && (n2 == n3) || !(n1 == n3)); //true
+        // 연산의 실행 횟수 3번
+        console.log(!(n1 == n3) || (n2 == n3) && !(n1 == n2)); //true
+
+        // 삼항연산자
+        console.log(n1 == n2 ? n1 : n2)
+        let result = typeof n1 == typeof n2 ? 'equal type' : 'different type';
+        console.log(`result: ${result}`);
+
+        let tri_width = 100, tri_height= 34;
+        console.log(`삼각형 넓이: ${tri_width*tri_height/2}`)
+        let sqr_hight = 65, sqr_width=45;
+        console.log(`사각형 넓이: ${(sqr_width+sqr_hight)*2}`)
+
+        console.log("===================");
+        const PI = 3.14;
+        let r = 7;
+        // 삼각형의 넓이 > 원의 넓이를 비교한 값과
+        // 삼각형의 넓이> 사각형의 넓이를 비교한 값의 &&연산과 || 연산 결과를 콘솔로 출력
+        let tri_result = tri_width * tri_height / 2;
+        let sqr_result = sqr_width * sqr_hight;
+        let cir_result = (r**2)*PI
+        console.log((tri_result>sqr_result)&&(tri_result>cir_result));
+        console.log((tri_result>cir_result)||(tri_result>sqr_result));
+
+        //연봉이 3000만원이라고 가정한 후
+        //월 급여의 50%를 첫 달에 저축한 후 2%씩 매달 저축률을 올리고자 한다
+        //저축이자율을은 년 3%라고 가정하면 1년 후 여러분이 받을 총수령액(원금+이자)은?
+        let year_pay = 30000000;
+        let month_pay = year_pay/12;
+        let month_save = month_pay*0.5;
+        let save_money
+        save_money = month_save // 1월
+        console.log('1월, yp='+year_pay+', mp='+month_pay+', ms='+month_save+', sm='+save_money+'')
+        month_save *= 1.02;
+        save_money += month_save // 2월
+        month_save *= 1.02;
+        save_money += month_save // 3월
+        month_save *= 1.02;
+        save_money += month_save // 4월
+        month_save *= 1.02;
+        save_money += month_save // 5월
+        month_save *= 1.02;
+        save_money += month_save // 6월
+        console.log('6월, yp='+year_pay+', mp='+month_pay+', ms='+month_save+', sm='+save_money+'')
+        month_save *= 1.02;
+        save_money += month_save // 7월
+        month_save *= 1.02;
+        save_money += month_save // 8월
+        month_save *= 1.02;
+        save_money += month_save // 9월
+        month_save *= 1.02;
+        save_money += month_save // 10월
+        month_save *= 1.02;
+        save_money += month_save // 11월
+        month_save *= 1.02;
+        save_money += month_save // 12월
+        console.log('12월, yp='+year_pay+', mp='+month_pay+', ms='+month_save+', sm='+save_money+'')
+        save_money *= 1.03;
+        console.log(save_money)
+
+        let salary = 30000000 / 12;
+        let saveRatio = 0.5;
+        r = 0.03;
+        let deposit = 0, interest= 0;
+
+        let totalInterest, totalSaving
+
+        // 첫달
+        // deposit += (salary * saveRatio) * (1+(r*(12/12));
+        interest = (salary * saveRatio) * (r * (12 / 12));
+        totalSaving = salary * saveRatio;
+        totalInterest = interest;
+        deposit += (salary * saveRatio) + interest;
+        console.log(deposit);
+
+        // 2개월째
+        saveRatio += 0.02;
+        totalInterest += interest;
+        totalSaving += salary * saveRatio;
+        interest = (salary*(saveRatio+ 0.02)) * (r* (11/12));
+        deposit += (salary * saveRatio) + interest;
+        // 3개월째
+        saveRatio += 0.02;
+        totalInterest += interest;
+        totalSaving += salary * saveRatio;
+        interest = (salary*(saveRatio+ 0.02)) * (r* (10/12));
+        deposit += (salary * saveRatio) + interest;
+        // 4개월째
+        saveRatio += 0.02;
+        totalInterest += interest;
+        totalSaving += salary * saveRatio;
+        interest = (salary*(saveRatio+ 0.02)) * (r* (9/12));
+        deposit += (salary * saveRatio) + interest;
+        // 5개월째
+        saveRatio += 0.02;
+        totalInterest += interest;
+        totalSaving += salary * saveRatio;
+        interest = (salary*(saveRatio+ 0.02)) * (r* (8/12));
+        deposit += (salary * saveRatio) + interest;
+        // 6개월째
+        saveRatio += 0.02;
+        totalInterest += interest;
+        totalSaving += salary * saveRatio;
+        interest = (salary*(saveRatio+ 0.02)) * (r* (7/12));
+        deposit += (salary * saveRatio) + interest;
+        // 7개월째
+        saveRatio += 0.02;
+        totalInterest += interest;
+        totalSaving += salary * saveRatio;
+        interest = (salary*(saveRatio+ 0.02)) * (r* (6/12));
+        deposit += (salary * saveRatio) + interest;
+        // 8개월째
+        saveRatio += 0.02;
+        totalInterest += interest;
+        totalSaving += salary * saveRatio;
+        interest = (salary*(saveRatio+ 0.02)) * (r* (5/12));
+        deposit += (salary * saveRatio) + interest;
+        // 9개월째
+        saveRatio += 0.02;
+        totalInterest += interest;
+        totalSaving += salary * saveRatio;
+        interest = (salary*(saveRatio+ 0.02)) * (r* (4/12));
+        deposit += (salary * saveRatio) + interest;
+        // 10개월째
+        saveRatio += 0.02;
+        totalInterest += interest;
+        totalSaving += salary * saveRatio;
+        interest = (salary*(saveRatio+ 0.02)) * (r* (3/12));
+        deposit += (salary * saveRatio) + interest;
+        // 11개월째
+        saveRatio += 0.02;
+        totalInterest += interest;
+        totalSaving += salary * saveRatio;
+        interest = (salary*(saveRatio+ 0.02)) * (r* (2/12));
+        deposit += (salary * saveRatio) + interest;
+        // 12개월째
+        saveRatio += 0.02;
+        totalInterest += interest;
+        totalSaving += salary * saveRatio;
+        interest = (salary*(saveRatio+ 0.02)) * (r* (1/12));
+        deposit += (salary * saveRatio) + interest;
+
+        console.log(`저축원금:${totalSaving}, 총이자액:${totalInterest}, 세전수령액:${deposit}, 세후수령액:${totalSaving+(totalInterest*(1-0.154))}`);
+
+        function my_function(p1, p2) {
+            return p1 * p2;
+        }
+
+        console.log(my_function(5, 10))
+
+    </script>
+</body>
+</html>
