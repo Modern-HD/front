@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <ul>
+        <li>
+            const 상수로 선언을 하는 것이 일반적 : 객체의 지속성을 확보하기 위함
+        </li>
+        <li>
+            {}; 안에 속성명: 속성값, 속성명: 속성값, ... 으로 표현
+        </li>
+        <li>
+            속성명은 같은 객체 내에서는 중복되면 안됨(고유 키)
+        </li>
+        <li>
+            객체내부의 속성값으로 사용할 수 있는 데이터 타입은 제한이 없다
+        </li>
+        <li>
+            객체 속성값으로 익명함수를 정의하면 그 함수를 메서드라고 부른다. 메서드 명은 속성명이 됨
+        </li>
+    </ul>
+    <script>
+        const car = {name: 'myCar', year:2008};
+        // car = 100; 불가능
+        // car를 선언한 객체를 지킬 수 있음 - 지속성 유지
+        let myCar = {name: 'superCar', hp: 200};
+        myCar = 100; // 가능
+        // myCar라는 객체는 사라짐 - 객체를 선언하여 활용하려고 하는 목적을 잃어버림
+    </script>
+    <script>
+        let keyName = "lastName";
+        let title = '객체 밖입니다.'
+        const me = {
+            lastName: "Park",
+            fisrtName: 'Modern',
+            age: 24,
+            addr: 'siheong',
+            isDeveloper: true,
+            "hobby": "Baseball",
+            "my favor":"아이스크림",
+            avail : {
+                year: 2021,
+                title: 'javascript',
+                ver: 'ES6+',
+                project: 'React JS',
+                intro: function() {
+                    console.log(`${title}`)
+                    console.log(`${this.title}:${this.ver}=${this.project}`);
+                    // this 키워드: 내가 소속된 객체를 가리킴
+                },
+            },
+            year: 2022,
+        };
+        console.log(me.addr); // siheong
+        console.log(me.year); // 2022
+
+        console.log(me.avail.year); // 2021
+        console.log(me.avail.project); // React JS
+        console.log(me.avail.intro); // 함수 실행이 아닌 지목
+        console.log(me.avail.intro()); // 함수 invoke(호출실행)
+
+        console.log(me["my favor"]);
+        console.log(me["age"]);
+        console.log(me["avail"]["title"]);
+        console.log(me["avail"]["intro"]());
+        console.log(me.hobby);
+        console.log(me[keyName]); // me["lastName"]
+
+        keyName = "age";
+        console.log(me[keyName]); // me["age"]
+        console.log(me.avail["title"]);
+        console.log(me["avail"].ver);
+
+    </script>
+
+    <script>
+        const musician = {
+            name: 'IU',
+            age: 30,
+            playlist: {
+                first: 'ABC',
+                second: 'DDD',
+                third: 'hihi',
+            },
+            jukebox: function(first, second, third) {
+                console.log(`${this.playlist.first}, ${this.playlist.second}, ${this.playlist.third}`);
+
+                return `${first}, ${second}, ${third}`;
+            },
+        };
+        let playList = musician.jukebox("너랑 나", "좋은 날", "밤편지");
+        console.log(typeof playList);
+        console.log(typeof playList === typeof musician.name)
+
+    </script>
+</body>
+</html>

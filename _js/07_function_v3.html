@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수의 리턴</title>
+</head>
+<body>
+    <h1>
+        함수의 리턴 유무에 따라 값을 돌려받을 수 있고 함수 실행의 종료시점을 정할 수 있다.
+    </h1>
+    <script>
+        function returnFunc(num1, num2) {
+            let result = num1 * num2;
+            return result;
+        }
+
+        console.log(returnFunc(10,20));
+
+        // 함수가 연산한 결과값이 외부 혹은 다시 필요할 떼 return 키워드를 사용함
+
+        let myNum = returnFunc(10,30);
+        console.log(`내가 기다린 숫자: ${myNum}`);
+        function divFunc(n1, n2) {
+            return n1 / n2;
+        }
+        function mulFunc(n1, n2) {
+            return divFunc(n1, n2);
+        }
+        function subFunc(n1, n2) {
+            return mulFunc(n1, n2);
+        }
+        function sumFunc(n1, n2) {
+            return subFunc(n1, n2);
+        }
+
+        const result = sumFunc(1,2);
+        console.log(result)
+
+        // 함수선언식
+        function myFuncOld(myName) {
+            console.log('나를 불렀니?')
+            return 'Hello' + myFunc();
+        }
+        // 함수표현식 (function expression) let은 사용하지 않음 ES5 부터 가능
+        const myFunc = function(myName) {
+            console.log('아니 나를 불렀어')
+            return 'Hello' + myName;
+        };
+
+        console.log(myFuncOld('minsu'))
+        
+
+    </script>
+</body>
+</html>

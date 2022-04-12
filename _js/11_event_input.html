@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 - 데이터 받기</title>
+</head>
+<body>
+    <h1>
+        form 태그를 통해 데이터를 받아오기
+    </h1>
+    <ul>
+        <li>
+            input, textarea, select, html element의 속성, 텍스트 등의 데이터를 받기
+        </li>
+        <li>
+            form 태그의 데이터는 value 속성의 값으로 매핑되어 있으므로 value 속성을 호출하면 된다.
+        </li>
+        <li>
+            select의 option, radio, checkbox의 value는 선택된 값을 가져와야 하므로 추가 코드 필요
+        </li>
+        <li>
+            value속성의 데이터는 모두 string으로 처리된다
+        </li>
+    </ul>
+    <form action="" id="myForm">
+        <fieldset>
+            <legend>이벤트 전송</legend>
+            ID: <input type="text" id="userid"><br>
+            PW: <input type="password" id="userpw"><br>
+            Birth: <input type="date" id="birth"><br>
+            pin: <input type="number" id="pin"><br>
+            <button type="button" id="sbmBtn" onclick="clickEventOccured()">전송</button>
+            <button type="button" id="listBtn" onclick="makeList()">리스트로 출력</button>
+        </fieldset>
+    </form>
+    <h3 id="info">
+
+    </h3>
+    <ol id="ol">
+
+    </ol>
+    <script>
+        function makeList() {
+            let userid = document.getElementById('userid').value;
+            let userpw = document.getElementById('userpw').value;
+            let birth = document.getElementById('birth').value;
+            let pin = document.getElementById('pin').value;
+
+            pin = parseInt(pin); // parseInt('숫자로 변경될 수 있는 문자만 가능')
+            // Pin = Number(pin); // Number('숫자로 변경될 수 있는 값')
+
+            let ol = document.getElementById('ol');
+            // ol.innerHTML = `<li>${typeof userid}: ${userid}</li>`;
+            // ol.innerHTML += `<li>${typeof userpw}: ${userpw}</li>`;
+            // ol.innerHTML += `<li>${typeof birth}: ${birth}</li>`;
+            // ol.innerHTML += `<li>${typeof pin}: ${pin}</li>`;
+            let str = `<li>${typeof userid}: ${userid}</li>
+            <li>${typeof userpw}: ${userpw}</li>
+            <li>${typeof birth}: ${birth}</li>
+            <li>${typeof pin}: ${pin}</li>`;
+
+            ol.innerHTML = str;
+        }
+        function clickEventOccured() {
+            let userid = document.getElementById('userid').value;
+            let userpw = document.getElementById('userpw').value;
+            let birth = document.getElementById('birth').value;
+            let pin = document.getElementById('pin').value;
+
+            document.getElementById('info').innerText = `${typeof userid}:${userid}`;
+            // debugger; // 개발자 도구 오픈 상태에서 현재라인에서 실행 일시정지
+            document.getElementById('info').innerText += `${typeof userpw}:${userpw}`;
+            // debugger; // 다음 디버거로 이동 F8키
+            document.getElementById('info').innerText += `${typeof birth}:${birth}`;
+            // debugger;
+            document.getElementById('info').innerText += `${typeof pin}:${pin}`;
+        }
+    </script>
+</body>
+</html>
