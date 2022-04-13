@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자타입 관련 메서드</title>
+</head>
+<body>
+    <h1>
+        문자관련 메서드는 사용률이 매우 높고 다른 프로그래밍 언어에서 사용되는 메서드와 비슷하므로 잘 알아두면 좋다
+    </h1>
+    <ul>
+        <li>문자 추출 관련 메서드: slice(), substring(), substr()</li>
+        <li>
+            <ul>
+                <li>
+                    문자 대체 메서드: replace(oldStr, newStr) : 첫번째 매칭되는 문자만, 대소문자 구분
+                </li>
+                <li>
+                    trim(): 문자열 양측 공백제거 메서드: 데이터 입력값의 좌우 공백을 삭제하는 경우 많이 사용
+                </li>
+                <li>
+                    padStart(목표문자길이, 채울문자): 앞쪽에 채우기 <br>
+                    padEnd(목표문자길이, 채울문자): 뒤쪽에 채우기 <br>
+                    문자의 힌트, 전체값 중 일부만 보여주고 싶을 때 등
+                </li>
+            </ul> 
+        </li>
+        <li>문자 추출 메서드: charAt(position or index): position=index<br>
+            지정한 index의 문자값을 추출 <br>
+            string[index] : readonly
+        </li>
+        <li>
+            탐색 메서드는
+            <ul>
+                <li>
+                    indexOf("str"), lastIndexOf("str") : 지정문자열의 index 값 리턴 <br>
+                    문자값이 2자 이상이면 시작하는 char의 index
+                </li>
+                <li>
+                    startsWith(), endsWith(): 지정문자열이 탐색대상 문자열에서 시작과 끝으로 존재하는지 여부 : return true or flase <br>
+                    파라미터가 1개: (지정문자열)의 시작과 끝에 존재하는지 여부 <br>
+                    파라미터가 2개: startWith(지정문자열, 탐색시작 index)
+                    파라미터가 2개: endWith(지정문자열, 탐색할 문자열의 시작부터의 길이)
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        let str = "Apple, Banana, kiwi";
+        let startIndex = 0;
+        let endIndex = 5; // endIndex값은 미포함
+        console.log(str.slice(startIndex, endIndex)); // End index는 미포함이므로 End index 앞까지만 나온다.
+        // 파라미터가 1개일때는 지정 Index부터 문자값 끝까지
+        console.log(str.slice(7)); 
+        console.log(str.slice(7,str.length)); // 위의 값과 같다
+        // 파라미터에 음수를 사용하면 문자값 뒤에서 출발
+        console.log(str.slice(-1));
+
+        // substring()은 slice와 비슷하지만 파라미터에 음수는 사용할 수 없다. 
+        // str.substring(startIndex, endIndex)
+
+        let count = 5;
+        // count는 문자 선택 개수
+        console.log(str.substr(startIndex, count));
+
+        // 파라미터가 1개이면 지정 인덱스로부터 문자값 끝가지
+        console.log(str.substr(13));
+        console.log(str.substring(13, str.length-13));
+
+        let text = "Please visit Microsoft!";
+        let newText = text.replace(/MICROSOFT/i, "W3Schools"); // 대소문자 구분x
+
+
+        text = "Please visit Microsoft and Microsoft!";
+        newText = text.replace(/Microsoft/g, "W3Schools"); //문자열 전체에 적용
+        
+        let trimText= "        이번주 학습 과정은  ";
+        console.log(trimText.trim());
+
+        // 주민등록번호 -을 포함하여 텍스트를 준비하고 생년월일-성별코드 1자리 뒤쪽으로 *으로 대체하여 출력해보시오.
+
+        let test_numbers = '991123-1122334';
+        console.log(test_numbers.slice(0,8).padEnd(14,'*'));
+
+        // index의 값이 고정적인 의미를 갖고 있을 때 값을 추출해서 판단하는 로직에 많이 사용
+        let genNum = test_numbers.charAt(7);
+        console.log(genNum)
+        if (genNum == 1 || genNum == 3) {
+            console.log('남성의 주민번호');
+        } else {
+            console.log('여성의 주민번호');
+        };
+
+        if ('0') {
+            console.log('true')
+        };
+
+        let fullFileName = "20220404_javascript.string_method.html";
+        let onlyFileName = fullFileName.substring(0, fullFileName.lastIndexOf("."));
+        console.log(onlyFileName);
+        let fileExt = fullFileName.substring(fullFileName.lastIndexOf(".")+1);
+        console.log(fileExt);
+        // 작성날짜 추출하기
+        let fileDate = fullFileName.substring(0, fullFileName.indexOf('_'));
+        console.log(fileDate);
+        // method 추출하기
+        let fileMethod = fullFileName.substring(fullFileName.lastIndexOf('_')+1,fullFileName.lastIndexOf('.'));
+        console.log(fileMethod);
+        
+        //전체 문자열에서 자정문자열 존재여부
+        let text3 = "Hello world, welcome to the universe.";
+        console.log(text3.includes("world"));
+        console.log(text3.includes("world"), 12);
+    </script>
+</body>
+</html>
