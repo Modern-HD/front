@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        input text에 파일명.확장자를 입력하여 전송버튼을 누르면 이미지파일인지 검사하여 이미지파일이면 정상파일입니다.
+        이미지 파일이 아니면 이미지파일만 가능합니다. 라고 출력하기
+    </h1>
+    <form action="">
+        <label for="file">파일명</label><input type="text" name="file" id="file">
+        <button type="button" id="btn">전송</button>
+    </form>
+    <h3  id="scanList">
+
+    </h3>
+    <script>
+        function imageFileValid(imageFileName) {
+            
+            // 대문자로 된 확장자명도 소문자기준으로 판단 가능해야함
+            return imageFileName.endsWith('png') ? true
+            : imageFileName.endsWith('jpg') ? true 
+            : imageFileName.endsWith('jpeg') ? true
+            : imageFileName.endsWith('gif') ? true
+            : false;
+        }
+        document.getElementById('btn').addEventListener('click',function() {
+            let scanList = document.getElementById('scanList');
+            let str = document.getElementById('file').value.toLowerCase();
+            scanList.innerText = imageFileValid(str)? "정상 파일입니다." : "이미지 파일이 아닙니다.";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Up Down Game</title>
+</head>
+<body>
+    <h1>
+        Up Down Game
+    </h1>
+    <ol>
+        <li>
+            랜덤 숫자 만들기 버튼: 컴퓨터가 랜덤으로 1~99(포함)의 숫자 1개를 생성한다.
+        </li>
+        <li>
+            숫자가 생성되며 컴퓨터가 랜덤으로 숫자를 생성하였습니다. 라는 안내 문구가 출력된다.
+        </li>
+        <li>
+            input란에 1~99(포함)숫자를 입력하고 맞추기라는 버튼을 클릭하면
+        </li>
+        <li>
+            컴퓨터의 숫자보다 높은숫자이면 Down을 출력, 낮은 숫자면 Up을 출력
+        </li>
+        <li>
+            컴퓨터의 숫자를 맞추면 정답입니다~ 컴퓨터 숫자는 ? 이였습니다. 라는 메세지 출력
+        </li>
+    </ol>
+
+    <div>
+        <button id="random_btn">랜덤 숫자 만들기</button>
+    </div>
+    <div>
+        <input type="number" name="number_input" id="number_input" style="width: 100px;"><button id="anser_btn" disabled>숫자 맞추기</button>
+    </div>
+    <h2 id="msgbox">
+
+    </h2>
+    <h2 id="try_count">
+
+    </h2>
+    <script>
+        let random_number;
+        let msg_box_area = document.getElementById('msgbox');
+        let try_count = 0;
+        let try_count_area = document.getElementById('try_count');
+        let anser_btn = document.getElementById('anser_btn');
+
+        function try_count_view() {
+            try_count_area.innerText = '실행횟수: '+try_count+'번';
+        }
+
+        function ramdom_number_generator() {
+            random_number = Math.floor(Math.random()*99) + 1;
+            console.log(`선정된 숫자: ${random_number}`);
+            msg_box_area.innerText = "랜덤으로 숫자를 생성하였습니다.";
+            try_count = 0;
+            try_count_view();
+            anser_btn.disabled = false;
+        }
+
+        function input_number_scan() {
+            let input_number = document.getElementById('number_input').value;
+            if (input_number > 0 && input_number < 100) {
+                if (try_count < 7) {
+                    if (random_number == input_number) {
+                        msg_box_area.innerText = '정답입니다! 컴퓨터 숫자는 '+random_number+'이였습니다!';
+                        anser_btn.disabled = true;
+                    } else if (random_number > input_number) {
+                        msg_box_area.innerText = 'UP';
+                    } else {
+                        msg_box_area.innerText = 'DOWN';
+                    }
+                    try_count++;
+                    try_count_view();
+                    document.getElementById('number_input').value = '';
+                } else {
+                msg_box_area.innerText = '시도횟수 초과!';
+                    anser_btn.disabled = true;
+                }
+            } else {
+                msg_box_area.innerText = "1부터 99까지의 값만 입력해주세요";
+            }
+        }
+
+        document.getElementById('random_btn').addEventListener('click',ramdom_number_generator);
+        anser_btn.addEventListener('click',input_number_scan);
+    </script>
+</body>
+</html>

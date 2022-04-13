@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>첫 도전과제</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-area">
+            <div class="form-area-inner">
+                <h2>정보를 입력해 주세요</h2>
+                <form action="">
+                    <table>
+                        <tr>
+                            <td>이름</td>
+                            <td><input type="text" name="name" id="name"></td>
+                        </tr>
+                        <tr>
+                            <td>거주지</td>
+                            <td><input type="text" name="addr" id="addr"></td>
+                        </tr>
+                        <tr>
+                            <td class="air-line" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">좋아하는 것은?</td>
+                        </tr>
+                        <tr>
+                            <td>음식</td>
+                            <td><input type="text" name="food" id="food"></td>
+                        </tr>
+                        <tr>
+                            <td>취미</td>
+                            <td><input type="text" name="hobby" id="hobby"></td>
+                        </tr>
+                        <tr>
+                            <td>음악</td>
+                            <td><input type="text" name="music" id="music">
+                        </tr>
+                        <tr>
+                            <td class="air-line" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td>반려동물 유무</td>
+                            <td>
+                                <input type="radio" name="pet" id="pet_yes" value="예"><label for="pet_yes">예</label>
+                                <input type="radio" name="pet" id="pet_no" value="아니요"><label for="pet_no">아니요</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>지금 필요한 것</td>
+                            <td><input type="text" name="need_now" id="need_now"></td>
+                        </tr>
+                    </table>
+                </form>
+                <button>전송하기</button>
+            </div>
+        </div>
+        <div class="scan-area">
+            <h2>당신이 입력한 정보!</h2>
+            <div class="scan-area-inner">
+                <div class="scan-list" id="scan_list">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script>
+        document.getElementsByTagName('button')[0].addEventListener('click', click_button);
+    </script>
+</body>
+</html>

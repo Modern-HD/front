@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국에서 호칭 선택하기</title>
+    <style>
+        .btn {
+            width: 80px;
+            height: 40px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .btn-woman {
+            background-color: pink;
+            color: red;
+            border: 2px solid hotpink;
+        }
+        .btn-woman:hover {
+            background-color: lightpink;
+            color: white;
+        }
+        .btn-man {
+            background-color: skyblue;
+            color: blue;
+            border: 2px solid cornflowerblue;
+        }
+        .btn-man:hover {
+            background-color: deepskyblue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        외국인들이 가장 어려워하는 것 중 하나가 한국인들의 호칭, 입력받으면 어떻게 부르는 지를 출력해주는 로직을 완성해보시오
+    </h1>
+    <h3>
+        부르는 사람: 성별, 나이
+    </h3>
+    <h2 id="call">
+        성별: <input type="button" id="btn_s1" class="btn btn-woman" value="여"></input> <label for="age1">나이:</label> <input type="number" name="age1" id="age1" min="1">
+    </h2>
+    <h3>
+        부르는 대상: 성별, 나이
+    </h3>
+    <h2 id="called">
+        성별: <input type="button" id="btn_s2" class="btn btn-woman btn-man" value="남"></input> <label for="age2">나이:</label> <input type="number" name="age2" id="age2" min="1">
+    </h2>
+    <button id="call_btn">어떻게 부르지?</button>
+    <h2 id="anser_area">
+
+    </h2>
+    <script>
+        let btn_s1 = document.getElementById('btn_s1');
+        let btn_s2 = document.getElementById('btn_s2');
+
+        btn_s1.addEventListener('click',function() {
+            togle_s(this);
+        });
+        btn_s2.addEventListener('click',function() {
+            togle_s(this);
+        });
+        document.getElementById('call_btn').addEventListener('click',how_call);
+
+        function togle_s(p1) {
+            if (p1.value === "남") {
+                p1.classList.toggle('btn-man');
+                p1.value = "여";
+            } else {
+                p1.classList.toggle('btn-man');
+                p1.value = "남";
+            }
+        }
+
+        function how_call() {
+            let anser_area = document.getElementById('anser_area');
+            let call_person_s = btn_s1.value;
+            let call_person_age = document.getElementById('age1').value;
+            let called_person_s = btn_s2.value;
+            let called_person_age = document.getElementById('age2').value;
+
+            if (call_person_age > called_person_age) {
+                called_person_s === "남" ? anser_area.innerText = '남동생' : anser_area.innerText = '여동생';
+            } else if (call_person_age < called_person_age) {
+                if (call_person_s === called_person_s) {
+                    called_person_s === "남" ? anser_area.innerText = '형' : anser_area.innerText = '언니';
+                } else {
+                    called_person_s === "남" ? anser_area.innerText = '오빠' : anser_area.innerText = '누나';
+                }
+            } else {
+                anser_area.innerText = '친구';
+            }
+        }
+    </script>
+</body>
+</html>

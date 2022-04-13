@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위 바위 보 게임</title>
+</head>
+<style>
+    button {
+        padding: 10px 15px;
+    }
+    ul {
+        list-style-type: none;
+    }
+    .vic {
+        color: green;
+    }
+    .def {
+        color: red;
+    }
+    .last {
+        font-size: 2em;
+    }
+</style>
+<body>
+    <h1>
+        컴퓨터가 가위바위보를 정하면 나도 가위 바위 보 중 한 개를 선택하여 게임을 한다.
+    </h1>
+    <h3>
+        총 5번의 게임에서 각 게임마다 승 무 패를 출력한다
+    </h3>
+    <div style="margin-bottom: 10px;">
+        <button id="start_btn">가위바위보 게임하기!</button>
+        <button id="reset">초기화</button>
+    </div>
+    <div>
+        <button id="sci_btn" disabled>가위</button>
+        <button id="rock_btn" disabled>바위</button>
+        <button id="paper_btn" disabled>보</button>
+    </div>
+    <h2>
+        <ul id="output_area"></ul>
+    </h2>
+    
+    <script>
+        let start_btn = document.getElementById('start_btn');
+        let sci_btn = document.getElementById('sci_btn');
+        let rock_btn = document.getElementById('rock_btn');
+        let paper_btn = document.getElementById('paper_btn');
+        let output_area = document.getElementById('output_area');
+        let coms_select;
+        let my_select;
+        let count = 0;
+        let com_vic = 0;
+        let my_vic = 0;
+
+        function com_select() {
+            let ramdom_number = Math.floor(Math.random()*3) + 1;
+            switch (ramdom_number) {
+                case 1:
+                    coms_select = "가위";
+                    break;
+                case 2:
+                    coms_select = "바위";
+                    break;
+                case 3:
+                    coms_select = "보";
+                    break;
+            }
+            console.log(`컴퓨터: ${coms_select}`)
+        }
+
+        function game_start() {
+            start_btn.disabled = true;
+            sci_btn.disabled = false;
+            rock_btn.disabled = false;
+            paper_btn.disabled = false;
+            com_select();
+        }
+        
+        function my_selection(p1) {
+            switch (p1.innerText) {
+                case "가위":
+                    my_select = "가위";
+                    break;
+                case "바위":
+                    my_select = "바위";
+                    break;
+                case "보":
+                    my_select = "보";
+                    break;
+            }
+            console.log(my_select);
+            Match();
+        }
+
+        function Match() {
+            output_area.innerHTML += `<li>내 선택: ${my_select}, 컴퓨터 선택: ${coms_select}</li>`;
+            switch (my_select) {
+                case "가위":
+                    switch (coms_select) {
+                        case "가위":
+                            output_area.innerHTML += `<li>무승부</li>`;
+                            break;
+                        case "바위":
+                            output_area.innerHTML += `<li><span class="def">패배</span></li>`;
+                            com_vic++;
+                            break;
+                        case "보":
+                            output_area.innerHTML += `<li><span class="vic">승리</span></li>`;
+                            my_vic++;
+                            break;
+                    }
+                    break;
+                case "바위":
+                    switch (coms_select) {
+                        case "가위":
+                            output_area.innerHTML += `<li><span class="vic">승리</span></li>`;
+                            my_vic++;
+                            break;
+                        case "바위":
+                            output_area.innerHTML += `<li>무승부</li>`;
+                            break;
+                        case "보":
+                            output_area.innerHTML += `<li><span class="def">패배</span></li>`;
+                            com_vic++;
+                            break;
+                    }
+                    break;
+                case "보":
+                    switch (coms_select) {
+                        case "가위":
+                            output_area.innerHTML += `<li><span class="def">패배</span></li>`;
+                            com_vic++;
+                            break;
+                        case "바위":
+                            output_area.innerHTML += `<li><span class="vic">승리</span></li>`;
+                            my_vic++;
+                            break;
+                        case "보":
+                            output_area.innerHTML += `<li>무승부</li>`;
+                            break;
+                    }
+                    break;
+            }
+            count++;
+            if (count < 5) {
+                start_btn.disabled = false;                
+            } else {
+                if (my_vic > com_vic) {
+                    output_area.innerHTML += `<li><span class="vic last">최종 승리!!</span></li>`;
+                } else if (my_vic < com_vic) {
+                    output_area.innerHTML += `<li><span class="def last">최종 패배 ㅠㅠ</span></li>`;
+                } else {
+                    output_area.innerHTML += `<li><span class="last">최종 무승부!</span></li>`;
+                }
+            }
+            sci_btn.disabled = true;
+            rock_btn.disabled = true;
+            paper_btn.disabled = true;
+        }
+
+        function reset() {
+            output_area.innerHTML = '';
+            start_btn.disabled = false;
+            com_vic = 0;
+            my_vic = 0;
+            count = 0;
+            sci_btn.disabled = true;
+            rock_btn.disabled = true;
+            paper_btn.disabled = true;
+        }
+
+        start_btn.addEventListener('click',game_start);
+        document.getElementById('reset').addEventListener('click',reset);
+
+        sci_btn.addEventListener('click', function() {
+            my_selection(this);
+        });
+        rock_btn.addEventListener('click', function() {
+            my_selection(this);
+        });
+        paper_btn.addEventListener('click', function() {
+            my_selection(this);
+        });
+
+        // document.addEventListener('click', function (e) {
+        //     let targetID = e.target.innerText;
+        //     if (e.targetID == 'sci_ntn' || targetID == 'rock_btn' || targetID == 'paper_btn') {
+        //         my_selection(targetID);
+        //     }
+        // });
+
+
+    </script>
+</body>
+</html>
