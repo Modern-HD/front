@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중첩 반복문</title>
+    <style>
+        .jump {
+            display: inline-block;
+            margin: 5px 10px;
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        반복문 내에 반복문: 원리를 이해하면 어렵지 않음
+    </h1>
+    <ul>
+        <li>
+            outer while: 바깥쪽 반복문 -> 기준
+        </li>
+        <li>
+            inner while: 안쪽 반복문 -> 기준이 반복될 때마다 다시 실행
+        </li>
+    </ul>
+    <h3>구구단 한 번 만들어보세요</h3>
+    <h1>GuGuClass</h1>
+    <div id="guguclass"></div>
+    <script>
+        let a = 0;
+        let b = 0;
+        let i = 1;
+        let j = 2;
+        let result_area = document.getElementById('guguclass');
+        while (i<10) {
+            b = i;
+            while (j<10) {
+                a = j;
+                result_area.innerHTML += `<span class="jump">${a} * ${b} = ${a*b}</span>`;
+                if (j>=9) {
+                    result_area.innerHTML += `<br>`
+                }
+                j++
+            }
+            i++
+            j = 2;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Null Coalescing Operator</title>
+</head>
+<body>
+    <h1>
+        null, undefined를 판단하여 해당하면 대체값을 출력하는 연산자
+    </h1>
+    <h3>
+        ES2020 버전부터 지원
+    </h3>
+    <ul>
+        <li>
+            좌측항이 null or undefined 이면 우측값을 출력
+        </li>
+        <li>
+            좌측항이 null or undefined 가 아니면 좌측값 그대로 출력
+        </li>
+    </ul>
+    <script>
+        console.log(null ?? "null 이니까 우측에 있는 항이 출력");
+        console.log(undefined ?? alert("undefined이니까 우측에 있는 항이 출력"));
+        console.log("" ?? "빈 문자열도 가능하니?");
+        console.log(0 ?? '숫자 0도 가능하니?');
+        console.log(NaN ?? 'NaN도 가능하니?');
+        console.log(false ?? '설마 false도 가능한거야?')
+    </script>
+</body>
+</html>

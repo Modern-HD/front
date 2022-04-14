@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case</title>
+</head>
+<body>
+    <h1>
+        switch case 절: equal 연산을 기반으로 만들어지는 매핑방식의 조건문
+    </h1>
+    <h3>
+        equal연산 및 반복 탐색연산에서 if else문보다 속도가 조금 더 빠르다고 함
+    </h3>
+    <script>
+        let week = 'Monday';
+        switch (week) {
+            case 'monday':
+                console.log('대소문자를 구별하기 때문에 monday는 equal 연산에서 false')
+                break; // break; 가 없으면 다음 case로 연산을 진행함
+            case 'Monday':
+                console.log('대소문자를 구분하기 때문에 Monday는 equal연산에서 true');
+                break; // 즉 break;를 만날때까지 코드가 실행된다는 의미
+            default: // if else if else 절의 else에 해당하는 절
+                console.log("위의 case 조건이 어느 하나라도 만족하지 않을 때 실행되는 영역")
+                break; // 마찬가지로 break; 필수!!!
+        }
+    </script>
+    <h1>
+        여러분은 HTML, CSS, Javascript 과목에 대한 테스트를 치뤘다고 가정합시다.
+    </h1>
+    <ul>
+        <li>
+            각 과목의 점수를 랜덤으로 60~100점까지 생성하여 할당한 후
+        </li>
+        <li>
+            과목의 총점괴 평균을 출력하시오
+        </li>
+        <li>
+            평균이 90점 이상이면 A, 80점 이상이면 B, 70점 이상이면 C, 60점 이상이면 D를 출력
+        </li>
+        <li>
+            단, 평균에 따른 학점산출은 switch 문을 사용해서 작성할 것!
+        </li>
+    </ul>
+    <div style="margin: 10px;">
+        <button id="ran_btn">랜덤 점수 생성하기</button><button id="score_btn">학점 계산하기</button>
+    </div>
+    <label for="html_score">HTML: </label>
+    <input type="number" name="html_score" id="html_score">
+    <label for="css_score">CSS: </label>
+    <input type="number" name="css_score" id="css_score">
+    <label for="js_score">HTML: </label>
+    <input type="number" name="js_score" id="js_score">
+
+    <h2 id="last_score">
+        
+    </h2>
+    <script>
+        document.getElementById('ran_btn').addEventListener('click',random_score)
+        document.getElementById('score_btn').addEventListener('click',last_score)
+
+        function random_gene() {
+            return Math.floor(Math.random()*41)+60;
+        }
+
+        function random_score() {
+            document.getElementById('html_score').value = random_gene();
+            document.getElementById('css_score').value = random_gene();
+            document.getElementById('js_score').value = random_gene();
+        }
+
+        function last_score() {
+            let html_score = parseInt(document.getElementById('html_score').value);
+            let css_score = parseInt(document.getElementById('css_score').value);
+            let js_score = parseInt(document.getElementById('js_score').value);
+            let total_score = html_score + css_score + js_score;
+            let avg = total_score/3;
+            let grade = "";
+            let key = parseInt(avg/10);
+
+            switch (key) {
+                case 10:
+                case 9:
+                    grade = "A";
+                    break;
+                case 8:
+                    grade = "B";
+                    break;
+                case 7:
+                    grade = "C";
+                    break;
+                case 6:
+                    grade = "D";
+                    break;
+                default:
+                    grade = "F";
+                    break;
+            }
+
+            ouput_area = document.getElementById('last_score');
+            ouput_area.innerText = grade;
+        }
+    </script>
+</body>
+</html>

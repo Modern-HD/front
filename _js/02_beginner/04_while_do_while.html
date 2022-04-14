@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 while</title>
+</head>
+<body>
+    <h1>
+        while과 do while은 반복의 횟수를 예상하기 어렵거나, 반복횟수를 특정할 필요가 없을 때 주로 사용
+    </h1>
+    <ul>
+        <li>
+            while(condition){ code... }: condition은 true일 때 code 영역을 반복 수행한다
+        </li>
+        <li>
+            do {code...} while(condition); : 우선 do 영역을 실행하고 condition이 true일 때 code 영역을 반복 수행한다.(세미클론 직성 주의)
+        </li>
+        <li>
+            조건에 부합하는 반복횟수를 정확하게 예측할 필요가 없을 때 비교, 논리 연산자를 통해 제어를 할 수 있다.
+        </li>
+        <li>
+            주의점: 조건이 항상 true이면 무한 반복 수행되기 때문에 조건 설정이 false를 예측할 수 있어야 함
+        </li>
+    </ul>
+    <script>
+        let count = 0;
+        while(count < 10) {
+            console.log(`한재 count의 값은 ${count}`);
+            count++;
+        }
+        let dan = 7;
+        let incre = 2;
+        while(incre < 10) {
+            console.log(`${dan} x ${incre} = ${dan*incre}`);
+            incre++; //증가값(종료조건) {false조건을 결정하는 요소}
+        }
+        dan = 8;
+        incre = 2;
+        do { // 무조건 1회는 실행하는 영역
+            console.log(`${dan} x ${incre} = ${dan*incre}`);
+            incre++;
+        } while (incre<10);
+    </script>
+</body>
+</html>

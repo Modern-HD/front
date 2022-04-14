@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whlie문 연습</title>
+</head>
+<body>
+    <h1>a의 b제곱을 구하라: Math.pow(a, b)</h1>
+    a : <input type="number" id="paramA"><br>
+    b : <input type="number" id="paramB"><br>
+    <button type="button" id="calcBtn">제곱연산하기</button>
+    <h2 id="printResult">
+
+    </h2>
+    <script>
+
+        function calc(a, b) {
+            let result = 1;
+            let count = 0;
+            while (count < b && !(b == 1)) {
+                result = result * a; // result *= a;
+                count++;
+            }
+            document.getElementById('printResult').innerText
+            = `${a}의 ${b}제곱은 ${result}입니다`;
+        }
+
+        document.getElementById('calcBtn').addEventListener('click',function(){
+            let a = document.getElementById('paramA').value;
+            let b = document.getElementById('paramB').value;
+            calc(parseInt(a), parseInt(b));
+            console.log(Math.pow(parseInt(a), parseInt(b)));
+            console.log(Math.pow(parseInt(a)**parseInt(b)));
+            
+        })
+    </script>
+</body>
+</html>

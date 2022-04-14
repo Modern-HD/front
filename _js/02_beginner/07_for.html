@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for 반복문</title>
+</head>
+<body>
+    <h1>while문과 같은 반복문이며 초기값, 조건식, 증감식을 미리 선언할 수 있는 형태</h1>
+    <ul>
+        <li>
+            for (초기값; 조건식; 증감식) { code...} 의 형태로 만들어지며
+        </li>
+        <li>
+            초기값, 조건식, 증감식은 다양한 형태로 만들 수 있어서 자유도가 높은 편임
+        </li>
+        <li>
+            Standard For; for(let i=0; i &lt; 10; i++) {code...}
+        </li>
+        <li>
+            Advanced For :
+            <ul>
+                <li>for of: for (let value of Array) {code....} </li>
+                <li>for in: for (let value in Object) {code....}</li>
+            </ul>
+        </li>
+    </ul>
+    <h3>
+        가위바위보 10게임 승률 출력해보기
+        <button type="button" id="rspBtn">승률출력</button>
+    </h3>
+    <h2>
+        이번 게임 승률은 <span id="printRatio"></span>%입니다.
+    </h2>
+    <script>
+        document.getElementById('rspBtn').addEventListener('click', function(){
+            let win = 0;
+            let draw = 0;
+            let lose = 0;
+
+            for (let i = 0; i <10; i++) {
+                let mine = Math.floor(Math.random()*3);
+                let com = Math.floor(Math.random()*3);
+
+                console.log(mine, com);
+                switch (mine) {
+                    case 0: //가위
+                    com == 0 ? draw++ : com == 1 ? lose++ : win++;
+                    break;
+                    case 1: //바위
+                    com == 1 ? draw++ : com == 2 ? lose++ : win++;
+                    break
+                    case 2: //보
+                    com == 2 ? draw++ : com == 0 ? lose++ : win++;
+                    break
+                    default:
+                    break;
+                }
+            }
+            document.getElementById('printRatio').innerText
+            = ((win / (10-draw))*100).toPrecision(4);
+        })
+    </script>
+</body>
+</html>
