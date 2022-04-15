@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>종합소득세 계산해보기</title>
+</head>
+<body>
+    <h1>
+        종합소득세 = 과세표준 * 소득세율
+    </h1>
+    <ul>
+        과세표준 = 총소득액 - 총공제인정액
+        <li>
+            총소득액 산출 = 시간당 pay를 입력받기, 하루 근무시간 입력받기, 1년 근로일수 입력받기(1년 근로일수) 입력받기(1년 52주)
+        </li>
+        <li>
+            총공제인정액(약식신고%) = 랜덤으로 30.0% ~ 40.0%를 산출한다
+        </li>
+        <li>
+            과세표준의 해당구간의 세율을 부과하여 세액을 출력하세요
+        </li>
+        <li>
+            <img src="tax_rate.png" alt="" width="500px">
+        </li>
+    </ul>
+    <label for="">시간당 pay</label><input type="number" name="h_pay" id="h_pay"><br>
+    <label for="">하루 근무시간</label><input type="number" name="d_work" id="d_work"><br>
+    <label for="">1년 근무일수</label><input type="number" name="y_work" id="y_work"><br>
+    <button id="btn">세액 계산</button>
+    <h2 id="output">
+
+    </h2>
+    <script>
+        document.getElementById('btn').addEventListener('click',general_inco_tax)
+
+        let nga = 0;
+        let tax_base1 = 0;
+
+        function general_inco_tax() { //종합소득세
+            let inco_tax_rate1 = inco_tax_rate();
+            let gene_inco_tax = parseInt(tax_base1 * inco_tax_rate1 - nga);
+            console.log(`종합소득세 = ${tax_base1} * ${inco_tax_rate1} - ${nga}`);
+            document.getElementById('output').innerText = `납부할 세액 ${gene_inco_tax}`;
+        }
+
+        function inco_tax_rate() { // 소득세율
+            tax_base1 = tax_base();
+            let key = tax_base1/1000000;
+            if (key <= 12) {
+                nga = 0;
+                return 0.06;
+            } else if (key > 12 && key <= 46) {
+                nga = 108 * 10000;
+                return 0.15;
+            } else if (key > 46 && key <= 88) {
+                nga = 522 * 10000;
+                return 0.24;
+            } else if (key > 88 && key <= 150) {
+                nga = 1490 * 10000;
+                return 0.35;
+            } else if (key > 150 && key <= 300) {
+                nga = 1940 * 10000;
+                return 0.38;
+            } else if (key > 300 && key <= 500) {
+                nga = 2540 * 10000;
+                return 0.4;
+            } else if (key > 500 && key <= 1000) {
+                nga = 3540 * 10000;
+                return 0.42;
+            } else {
+                nga = 6540 * 10000;
+                return 0.45;
+            }
+        }
+
+        function tax_base() { //과세표준
+            let total_inco = total_inc();
+            let total_deduc1 = total_deduc();
+            console.log(`총소득액: ${total_inco}, 적용된 총공제인정액%: ${total_deduc1}`);
+            return total_inco - (total_inco * total_deduc1);
+        }
+
+        function total_deduc () { // 총공제인정액
+            return (Math.floor(Math.random()*10*10)/10+30.1)*0.01;
+        }
+
+        function total_inc() { // 총소득액
+            h_pay = parseInt(document.getElementById('h_pay').value);
+            d_work = parseInt(document.getElementById('d_work').value);
+            y_work = parseInt(document.getElementById('y_work').value);
+
+            return h_pay * d_work * y_work;
+        }
+    </script>
+</body>
+</html>

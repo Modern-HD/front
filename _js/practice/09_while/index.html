@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while문 활용 연습</title>
+</head>
+<body>
+    <h1>
+        반복문의 초기값, 조건식, 증감식을 이용해 제어를 한다.
+    </h1>
+    <ol>
+        <li>
+            1~100 이하의 홀수를 모두 출력한 후 그 수들의 합을 출력해보세요
+        </li>
+        <li>
+            정수 n을 입력받아 n의 약수를 모두 출력하고 총 몇개의 약수가 있는지 출력해 보세요
+        </li>
+        <li>
+            <ol>
+                <li>
+                    3자리의 양의 정수 1개를 입력받고 : s
+                </li>
+                <li>
+                    크기가 다른 1자리 양의 정수 두개를 입력받기: a, b
+                </li>
+                <li>
+                    s안의 a와 b의 배수 개수를 구해보세요
+                </li>
+            </ol>
+        </li>
+    </ol>
+    <button id="odd_btn">1부터 100이하의 홀수 출력</button>
+    <h2 id="odd_result"></h2>
+    <hr>
+    <input type="number" id="divisor_input"><button id="divisor_btn">약수 구하기</button>
+    <h2 id="divisor_result"></h2>
+    <hr>
+    3자리 양의 정수 s:<input type="number" id="multiple_s"><br>
+    1자리 양의 정수 a:<input type="number" id="multiple_a"><br>
+    1자리 양의 정수 b:<input type="number" id="multiple_b"><br>
+    <button id="multiple_btn">s안의 a와 b의 배수 갯수 구하기</button>
+    <h2 id="multiple_result"></h2>
+    <script>
+        
+        document.getElementById('odd_btn').addEventListener('click',add_finder)
+        document.getElementById('divisor_btn').addEventListener('click',function(){
+            let input_number = parseInt(document.getElementById('divisor_input').value);
+            divisor_calc(input_number);
+        })
+        document.getElementById('multiple_btn').addEventListener('click',function() {
+            let s = parseInt(document.getElementById('multiple_s').value);
+            let a = parseInt(document.getElementById('multiple_a').value);
+            let b = parseInt(document.getElementById('multiple_b').value);
+            if (s>99 && s<1000) {
+                if (a>0 && a<10) {
+                    if (b>0 && b<10) {
+                        multiple_counter(s, a, b);
+                    } else {
+                        alert('b에 1이상의 1자리 자연수를 입력해주세요.');
+                    }
+                } else {
+                    alert('a에 1이상의 1자리 자연수를 입력해주세요.');
+                }
+            } else {
+                alert('s에 3자리 정수를 입력해 주세요.');
+            }
+        })
+
+        function add_finder() {
+            document.getElementById('odd_result').innerHTML = "";
+            let i = 0;
+            let count = 0;
+            let odd_arr = [];
+            let odd_sum = 0;
+            while (i<100) {
+                if ((i+1)%2 === 1) {
+                    odd_arr[count] = i + 1;
+                    odd_sum += i + 1;
+                    count++;
+                }
+                i++;
+            }
+            console.log(odd_arr, odd_sum);
+            i = 0;
+            while (i< odd_arr.length) {
+                document.getElementById('odd_result').innerText += ` ${odd_arr[i]} `;
+                i++;
+            }
+            document.getElementById('odd_result').innerHTML += `<br><h2>1부터 100까지의 홀수들의 합: ${odd_sum}</h2>`;
+        }
+
+        function divisor_calc(input_number) {
+            document.getElementById('divisor_result').innerHTML = ``
+            let i = 0;
+            let count = 0;
+            let divisor_arr = [];
+            let divisor_sum = 0;
+            while (i < input_number) {
+                if (input_number % (i+1) === 0) {
+                    divisor_arr[count] = i + 1;
+                    divisor_sum += i + 1;
+                    count++;
+                }
+                i++;
+            }
+            i = 0;
+            while (i< divisor_arr.length) {
+                document.getElementById('divisor_result').innerText += ` ${divisor_arr[i]} `;
+                i++;
+            }
+            document.getElementById('divisor_result').innerHTML += `<br><h2>${input_number}의 약수들의 합: ${divisor_sum}</h2>`;
+        }
+
+        function multiple_counter(s, a, b) {
+            document.getElementById('multiple_result').innerHTML = "";
+            let i = 1;
+            let a_count = 0;
+            let b_count = 0;
+
+            while (i < s) {
+                if (a*i <= s) {
+                    a_count++;
+                }
+                if (b*i <= s) {
+                    b_count++;
+                }
+                i++;
+            }
+            document.getElementById('multiple_result').innerHTML = `<h2>${s}안의 ${a}의 배수의 갯수는 ${a_count}개, ${b}의 배수의 갯수는 ${b_count}개</h2>`;
+        }
+
+
+    </script>
+</body>
+</html>

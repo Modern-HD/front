@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuGuClass</title>
+</head>
+<body>
+    <h1>
+        구구단 영역 (2x2=4 ~ 9x9=81)내에서 랜덤으로 한개를 문제로 내면 정답을 맞추는 로직
+    </h1>
+    <ul>
+        <li>
+            총 10개의 문제가 랜덤으로 출제되며
+        </li>
+        <li>
+            문제를 풀때 정답, 오답의 결과를 출력해야 하고
+        </li>
+        <li>
+            10 문제중 정답의 갯수를 기록하여 정답률을 출력한다.
+        </li>
+    </ul>
+    <button id="gene_btn">문제 생성</button>
+    <button id="qna_btn" disabled>정답 확인하기</button>
+    <h2>
+        <ol id="question_area">
+
+        </ol>
+    </h2>
+    <h1 id="count_area">
+
+    </h1>
+    <script>
+        let i = 0;
+        let left = [];
+        let right = [];
+        let anser = [];
+
+        let gene_btn = document.getElementById('gene_btn');
+        let qna_btn = document.getElementById('qna_btn');
+
+        gene_btn.addEventListener('click',GuGuGenerator);
+        qna_btn.addEventListener('click',show_anser);
+
+        function GuGuGenerator() {
+            reset();
+            qna_btn.disabled = false;
+            i = 0;
+            while (i<10) {
+            left[i] = random_left();
+            right[i] = random_right();
+            anser[i] = left[i] * right[i];
+            document.getElementById('question_area').innerHTML += `<li>${left[i]} × ${right[i]} = <input type="number" id="anser${i}"></li>`;
+            i++;
+            }
+        console.log(left, right, anser);
+        }
+        
+        function reset() {
+            document.getElementById('question_area').innerHTML = "";
+            document.getElementById('count_area').innerText = "";
+            left = [];
+            right = [];
+            anser = [];
+        }
+
+        function show_anser() {
+            i = 0;
+            let count = 0;
+
+            while (i<10) {
+                if (parseInt(document.getElementById(`anser${i}`).value) === anser[i]) {
+                    document.getElementById(`anser${i}`).style.backgroundColor = 'lightgreen';
+                    count++;
+                } else {
+                    document.getElementById(`anser${i}`).style.backgroundColor = 'pink';
+                }
+                i++;
+            }
+            document.getElementById('count_area').innerText = `총 ${count}개 정답!, 정답률: ${count/10*100}%`;
+        }
+
+        function random_left() {
+            return parseInt(Math.floor(Math.random()*8)+2);
+        }
+        function random_right() {
+            return parseInt(Math.floor(Math.random()*9)+1);
+        }
+    </script>
+</body>
+</html>

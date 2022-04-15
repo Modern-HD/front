@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>각 달의 마지막 날 구하기</title>
+</head>
+<body>
+    <h1>
+        1월 부터 12월을 입력하면 입력한 달의 마지막 일자가 몇일 인지 출력(switch문 활용)
+    </h1>
+    <label for="month">알고싶은 월</label><input type="number" name="month" id="month"><button id="search_btn">알아보기</button>
+    <h3 id="output">
+
+    </h3>
+    <script>
+        document.getElementById('search_btn').addEventListener('click',function() {
+            let output_area = document.getElementById('output');
+            let month_value = parseInt(document.getElementById('month').value);
+            let end_day;
+            switch (month_value) {
+                case 2:
+                    end_day = '28 or 29';
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    end_day = 30;
+                    break;
+                default:
+                    end_day = 31;
+                    break;
+            }
+            output_area.innerText = `${month_value}월은 ${end_day}일까지 입니다.`;
+        });
+        let flag = 12 == "12"; //true
+        switch (flag) {
+            case true:
+                console.log('boolean도 case문에서 활용될 수 있는가')
+                break;
+            case false:
+                console.log('boolean도 case문에서 활용될 수 있는가?')
+                break;
+            default:
+                break;
+        }
+    </script>
+</body>
+</html>
