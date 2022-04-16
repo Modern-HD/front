@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Work Quiz 1</title>
+    <link rel="stylesheet" href="css/Q1_style.css">
+</head>
+<body>
+    <div id="modal">
+        <h1>
+            팩토리얼 계산함수 만들기
+        </h1>
+        <button id="modal_esc">×</button>
+        <pre>
+-개념 설명-
+
+중학교 때 배운 '계승(팩토리얼)' 기억하시나요?
+
+1부터 어떤 양의 정수 n까지의 정수를 모두 곱한 것을 말하며 n!로 나타낸다.
+
+출저: 네이버 지식백과
+
+팩토리얼은 아래와 같이 계산합니다. 0!은 1이라는 점도 기억해주세요.
+
+0! = 1
+1! = 1
+2! = 2 * 1 = 2
+3! = 3 * 2 * 1 = 6
+4! = 4 * 3 * 2 * 1 = 24
+5! = 5 * 4 * 3 * 2 * 1 = 120
+6! = 6 * 5 * 4 * 3 * 2 * 1 = 720
+
+파라미터로 정수 n을 받고 n!을 계산해서 리턴해주는 함수 factorial을 작성해주세요.
+    </div>
+
+    <div class="container">
+        <h1> Modern's 팩토리얼 계산기</h1>
+        <div class="inner inner-top"> <!-- 입력부 -->
+            <h2>숫자를 입력해주세요</h2>
+            <input type="number" id="input_number"> <button id="facto_btn">팩토리얼 계산!</button>
+        </div>
+        <div class="inner inner-btom"> <!-- 출력부 -->
+            <h2 id="printf"></h2>
+        </div>
+    </div>
+    </pre>
+    <script>
+        document.getElementById('facto_btn').addEventListener('click', function(){
+            input_num = parseInt(document.getElementById('input_number').value);
+            printf(input_num, factorial(input_num));
+        })
+
+        document.getElementById('modal_esc').addEventListener('click', function(){
+            document.getElementById('modal').classList.add('dispay-none');
+        })
+
+        function factorial(input_num) {
+            let result_num = input_num;
+            if (input_num > 1) {
+                for (let i = input_num-1; i>=1; i--) {
+                    result_num *= i;
+                }
+            } else if (input_num == 0 || input_num == 1) {
+                result_num = 1;
+            } else {
+                return "error"; // 유효성 검사
+            }
+            return result_num;
+        }
+
+        function printf(input_num, result_num) {
+            if (result_num === "error") {
+                alert('0 이상의 정수를 입력해주세요');
+            } else {
+                document.getElementById('printf').innerHTML = `<span class="result1">${input_num}!</span>의 값은 <span class="result2">${result_num}</span>입니다!`;
+            }
+        }
+    </script>
+</body>
+</html>

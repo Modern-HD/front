@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팰린드롬</title>
+</head>
+<body>
+    <h1>
+        팰린드롬 : 거꾸로 읽어도 같은 단어인지 판단하기
+    </h1>
+    <ul>
+        <li>
+            단어 입력을 받아 팰린드롬 여부를 출력하세요
+        </li>
+    </ul>
+    <input type="text" id="input_text"><button id="btn">팰린드롬 여부 확인</button>
+    <h2 id="printf"></h2>
+    <script>
+        document.getElementById('btn').addEventListener('click', function(){
+            let str = {}
+            let str_l = {}
+            let input_str = document.getElementById('input_text').value;
+            let count = 0;
+            let result = true;
+            for (let i=0; i<input_str.length; i++){
+                str[`arr${i}`] = input_str.substr(i,1);
+            }
+            console.log(str);
+            for (let i=0; i<input_str.length; i++){
+                str_l[`arr${i}`] = str[`arr${input_str.length-1-i}`] ;
+            }
+            console.log(str_l);
+            for (let i=0; i<input_str.length; i++){
+                if (str[`arr${i}`]==str_l[`arr${i}`]) {
+                    console.log(`사이클 ${i}: 같음`);
+                } else {
+                    console.log(`사이클 ${i}: 다름`);
+                    result = false;
+                }
+            }
+            if (result) {
+                document.getElementById('printf').innerHTML = "팰린드롬 단어임"
+            } else {
+                document.getElementById('printf').innerHTML = "팰린드롬 단어가 아님"
+            }
+        })
+
+        function another(word) {
+            let wordLen = Math.floor(word.length/2);
+            for (let i=0; i < wordLen; i++) {
+                if (word.charAt(i) != word.charAt(word.length-1-i)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

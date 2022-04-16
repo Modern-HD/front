@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Work Quiz 3</title>
+    <link rel="stylesheet" href="css/Q3_style.css">
+</head>
+<body>
+    <h1>
+        단순 사칙연산 계산기 만들기 (+, -, *, /)
+    </h1>
+    <ul>
+        <li>
+            계산기의 작동은 버튼으로만 조작가능하다
+        </li>
+        <li>
+            연산자는 한 번만 사용하는 것으로 한다
+        </li>
+        <li>
+            버튼 : ., 0~9, +, -, *, /, =, C(clear)
+        </li>
+        <li>
+            계산기의 출력은 수식 = 결과의 형태이어여야 한다 : 12 + 34 = 46
+        </li>
+    </ul>
+    <div class="container">
+        Modern's Calculator v1
+        <table>
+            <tr>
+                <td colspan="4" class="result-td" id="printf"></td>
+            </tr>
+            <tr>
+                <td class="btn clr">C</td>
+                <td class="btn oper">÷</td>
+                <td class="btn oper">×</td>
+                <td class="btn oper">-</td>
+            </tr>
+            <tr>
+                <td class="btn num">7</td>
+                <td class="btn num">8</td>
+                <td class="btn num">9</td>
+                <td class="btn oper" rowspan="2">+</td>
+            </tr>
+            <tr>
+                <td class="btn num">4</td>
+                <td class="btn num">5</td>
+                <td class="btn num">6</td>
+            </tr>
+            <tr>
+                <td class="btn num">1</td>
+                <td class="btn num">2</td>
+                <td class="btn num">3</td>
+                <td class="btn resol" rowspan="2">=</td>
+            </tr>
+            <tr>
+                <td class="btn num" colspan="2">0</td>
+                <td class="btn dot">.</td>
+            </tr>
+        </table>
+    </div>
+    <script src="js/Q3.js"></script>
+</body>
+</html>
