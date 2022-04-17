@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열관련 메소드</title>
+</head>
+<body>
+    <h1>
+        배열관련 메소드: 유사(연관)배열에서는 사용제한이 있음
+    </h1>
+    <ul>
+        <li>
+            join() : 베열원소 사이사이에 문자를 삽입하여 새로운 문자열을 만들어주는 메서드
+        </li>
+        <li>
+            array.push(value) : 배열의 마지막에 원소를 추가: array[array.length] = value 와 같다. <br> 추가 후 배열의 길이 리턴
+        </li>
+        <li>
+            pop(): 배열의 마지막 원소를 제거하여 제거한 원소를 리턴
+        </li>
+        <li>
+            shift(): 배열의 첫 요소를 제거하고 제거한 원소를 리턴, pop()과 위치가 반대
+        </li>
+        <li>
+            unshift(value): 배열의 가장 앞에 원소를 추가하고, 추가 후 배열의 길이 리턴
+        </li>
+    </ul>
+    <script>
+        const ourClass = [];
+        ourClass[ourClass.length] = "김가영";
+        ourClass[ourClass.length] = "김나영";
+        ourClass[ourClass.length] = "김다형";
+        ourClass[ourClass.length] = "김라영";
+        ourClass.push("홍길동");
+        ourClass.push({n: 10, m: 'f',});
+        console.log(ourClass);
+        console.log('---------------------')
+        console.log(ourClass.pop());
+        ourClass.pop();
+        ourClass.pop();
+        console.log(ourClass);
+        console.log('====================')
+        ourClass.unshift({n: 10, m: 'f',}) // index: 0 -> 1
+        ourClass.unshift({n: 20, m: 'm',}) // index: 0
+        console.log(ourClass);
+        console.log('=-=-=-=-=-=-=-=-=-=-=')
+        ourClass.shift();
+        console.log(ourClass);
+        
+        </script>
+</body>
+</html>
