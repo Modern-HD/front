@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마지막 신청자의 점수는?</title>
+</head>
+<body>
+    <h1>
+        랜덤으로 100명의 신청자의 점수를 만들어 배열에 담아 첫번째, 마지막 신청자의 점수를 출력하세요.
+        단 100이라는 숫자를 사용하지 말 것
+    </h1>
+    <h2 id="printf"></h2>
+    <script>
+        let score = [];
+
+        while (score.push(score_gene()).toString().length < 3) {}
+
+        console.log(score);
+        document.getElementById('printf').innerText = `첫번째: ${score[0]}, 마지막: ${score[score.length-1]}`;
+
+        function score_gene() {
+            let random = Math.floor(Math.random()*101);
+            return random;
+        }
+    </script>
+</body>
+</html>

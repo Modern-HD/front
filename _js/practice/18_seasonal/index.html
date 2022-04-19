@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24절기</title>
+</head>
+<body>
+    <h1>
+        24절기의 절기를 배열에 순서대로 저장 한 후 랜덤으로 몇 번 째 절기는? 묻는 문제 
+    </h1>
+    <ul>
+        <li>
+            24절기를 배열에 선언한다
+        </li>
+        <li>
+            24절기 배열을 인덱스 번호를 활용하여 랜덤으로 몇 번 째 절기는? 문제 출제 버튼
+        </li>
+        <li>
+            입력해서 정답확인 버튼을 클릭하면 정답 여부와 오답일 경우 정답을 출력한다
+        </li>
+    </ul>
+    <button id="btn_q">문제 출제</button><input type="text" id="input_text"><button id="btn_a" disabled>정답 맞추기</button>
+    <h2 id="print_q"></h2>
+    <h2 id="print_a"></h2>
+    <h1 id="ratio">10번의 문제를 출제한 후 10문제를 모두 풀면 더 이상 출제가 안되고 정답률이 출력되도록 해보세요</h1>
+    <script>
+        const seasonal = [
+            '입춘','우수','경칩','춘분','청명','곡우','입하',
+            '소만','망종','하지','소서','대서',
+            '입추','처서','백로','추분','한로','상강','입동',
+            '소설','대설','동지','소한','대한'
+        ];
+
+        let random_num = 0;
+        let quiz_history = [];
+        let anser_history = [];
+
+        document.getElementById('btn_q').addEventListener('click',function(){   
+            if (anser_history.length >= 10) {
+                let bingo = 0;
+                for (var i = 0; i < anser_history.length; i++) {
+                    if (quiz_history[i] == anser_history[i]) {
+                        bingo++;
+                    }
+                }
+                document.getElementById('ratio').innerText = `정답률 ${bingo/10*100}%!`;
+                quiz_history = [];
+                anser_history = [];
+                return;
+            }
+            document.getElementById('print_a').innerHTML = "";
+            random_num = Math.floor(Math.random()*24);
+            quiz_history.push(seasonal[random_num]);
+            document.getElementById('print_q').innerText = `${random_num + 1}절기의 이름은?`
+            document.getElementById('btn_q').disabled = true;
+            document.getElementById('btn_a').disabled = false;
+        })
+
+        document.getElementById('btn_a').addEventListener('click', function(){
+            let input_text = document.getElementById('input_text').value;
+            let print_result = document.getElementById('print_a');
+            anser_history.push(input_text);
+            if (input_text == seasonal[random_num]) {
+                print_result.innerText = '정답!';
+            } else {
+                print_result.innerText = '오답!';
+                print_result.innerHTML += `<br>정답은 ${seasonal[random_num]}`;
+            }
+            document.getElementById('btn_q').disabled = false;
+            document.getElementById('btn_a').disabled = true;
+        })
+
+    </script>
+</body>
+</html>

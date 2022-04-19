@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 순환</title>
+</head>
+<body>
+    <h1>
+        주어진 데이터를 순환하여 원하는 조건에 맞는 정보를 출력하기
+    </h1>
+    <ol>
+        <li>
+            데이터 exchanges에서 통화이름만 가져와 새로운 배열에 저장한 후 출력
+        </li>
+        <li>
+            exchanges의 각 통화 변화율 중 가장 큰 변화를 보인 객체 정보를 출력
+        </li>
+        <li>
+            gold의 포인트 정보와 변화율을 분석하여 전일(yesterday)의 포인트 값을 추정하여 출력
+        </li>
+    </ol>
+    <script src="index.js"></script>
+    <script>
+
+        const exchanges_names = exs.exchanges.map(function(el) {
+            return el['name'];
+        });
+        console.log(exchanges_names);
+        
+        let max = 0;
+        const best_exs = exs.exchanges.filter(function(el) {
+            exs.exchanges.forEach(function(el) {
+                if (Math.abs(el['updown']) > max) {
+                    max = Math.abs(el['updown']);
+                }
+            });
+            return Math.abs(el['updown']) == max;
+        });
+        console.log(`name: ${best_exs[0]['name']}, point ${best_exs[0]['point']}, updown: ${best_exs[0].updown}`)
+
+        const yesterday = exs.gold.map(function(el,i){
+                return el.point - el.updown;
+            })
+        console.log(`어제 국제금: ${yesterday[0]}, 어제 국내금: ${yesterday[1]}`);
+
+
+        // no.1 another way
+        const nameArr = [];
+        exs.exchanges.forEach(function(el) {
+            nameArr.push(el.name);
+        })
+        console.log(nameArr);
+
+        // no.2 another way
+        let updowns = exs.exchanges.map(function(el) {
+            return Math.abs(el.updown);
+        })
+        let updowns_sort = updowns.sort(function(a, b){return b-a});
+        const best_gap = exs.exchanges.filter(function(el){
+            return Math.abs(el.updown) == updowns_sort[0];
+        })
+        console.log(`name: ${best_gap[0]['name']}, point ${best_gap[0]['point']}, updown: ${best_gap[0].updown}`);
+
+        // no.2 teacher
+        let high = 0;
+        const bigger = exs.exchanges.filter(function(el){
+            for (const key in el) {
+                if(key == 'updown'){
+                    if(high < Math.abs(el[key])) {
+                        high = Math.abs(el[key]);
+                        return true;
+                    }
+                }
+            }
+        })
+        console.log(bigger.pop());
+        
+        // no.3 teacher
+        const points = exs.gold.map(function(el){
+            let yesterday = 0;
+            for (const key in el) {
+                if(key == 'point'){
+                    yesterday = el[key];
+                }
+                if(key = 'updown'){
+                    yesterday -= el[key];
+                }
+            }
+            return yesterday;
+        });
+        console.log(yesterday);
+    </script>
+</body>
+</html>

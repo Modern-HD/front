@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 만들기</title>
+</head>
+<body>
+    <h1>
+        아래와 같이 배열을 만드는 range 함수를 완성해보세요
+    </h1>
+    <ul>
+        <li>
+            range(1, 6, 1) => [1, 2, 3, 4, 5]
+        </li>
+        <li>
+            range(3, 10, 2) => [3, 5, 7, 9]
+        </li>
+        <li>
+            range(10, -10, -4) => [10, 6, 2, -2, -6]
+        </li>
+    </ul>
+    <script>
+        
+        let q1 = range(1, 6, 1);
+        let q2 = range(3, 10, 2);
+        let q3 = range(10, -10, -4);
+
+        console.log(`range(1, 6, 1) =`, q1);
+        console.log(`range(3, 10, 2) =`, q2);
+        console.log(`range(10, -10, -4) =`, q3);
+
+        function range(start, end, increase) {
+            let new_arr = [];
+            if (end > start && increase > 0) {
+                for (let i = start; i < end; i += increase) {
+                    new_arr.push(i);
+                }
+            } else if (end < start && increase < 0) {
+                for (let i = start; i > end; i += increase) {
+                    new_arr.push(i);
+                }
+            } else {
+                console.log('error')
+            }
+            return new_arr;
+        }
+    </script>
+</body>
+</html>
