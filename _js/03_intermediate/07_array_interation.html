@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 순환</title>
+</head>
+<body>
+    <h1>
+        순환할 수 있는 구조를 이용하여 특정 기능을 할 수 있는 메서드가 제공됩니다
+    </h1>
+    <ul>
+        <li>
+            array.reduce(callback function(total, value, index, self), [init value]) : 내부 연산의 누적값을 리턴
+        </li>
+        <li>
+            array.reduceRight(reduce메서드와 동일): 배열의 값을 우측에서 좌측방향으로 대입
+        </li>
+        <li>
+            array.every(callback function(value, index, self)) : 콜백함수의 리턴조건에 모든 배열의 값이 만족하면 true를 리턴, 그렇지 않으면 false를 리턴
+        </li>
+        <li>
+            array.some(callback function(value, index, self)) : 콜백함수의 리턴조건에 만족하는 배열의 값이 존재하면 true를 리턴, 그렇지 않으면 false를 리턴
+        </li>
+        <li>
+            array.inedxOf("str value",[start index]): 배열의 값 중 해당하는 문자열이 있는 배열의 index값을 리턴함: 문자의 indexOf() 메서드와 비슷
+        </li>
+        <li>
+            array.lastInedxOf("str value",[start index]): 배열의 값 중 해당하는 문자열이 있는 배열의 마지막 index값을 리턴함: 문자의 indexOf() 메서드와 비슷
+        </li>
+        <li>
+            array.find(callback function(value, index, self)): 콜백함수의 리턴조건에 만족하는 첫번째 배열원소의 index를 리턴함: 검색조건 및 값 리턴이 쉬운편이여서 자주 사용함
+        </li>
+        <li>
+            array.from('sequence architecture가 적용된 객체'): 순서가 있거나 순환구조를 갖고 있는 객체를 배열로 전환함(ES6)
+        </li>
+        <li>
+            array.keys(): 배열이 사용중인 key(식별자, 즉 index)를 검색하여 새로운 배열로 리턴 => 객체에는 적용이 안됨
+        </li>
+        <li>
+            array,entries(): 배열의 index.value의 pair구조의 값을 만들어 새로운 배열에 담아 리턴 => 객체에는 적용이 안됨
+        </li>
+        <li>
+            array.includes("찾고 싶은 값"): 배열에 값이 존재하면 true 리턴
+        </li>
+    </ul>
+    <script>
+        const sampleObj = {
+            'a': 1, 'b':2, 'c':3, 'd':4, 'e':5
+        }
+
+        // const keyArr = sampleObj.keys(); //객체에는 적용안됨
+        // console.log(keyArr);
+
+        // const keyIter = sampleObj.entries(); // 객체에는 적용안됨
+        // for (const iter of keyIter) {
+        //     console.log(iter);
+        // }
+
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        const f = fruits.entries();
+
+        for (const x of fruits) {
+            console.log(x);
+        }
+
+        for (const x of f) {
+            console.log(typeof x);
+            console.log(x);
+        }
+
+        console.log(typeof f);
+        console.log(f);
+        
+    </script>
+</body>
+</html>

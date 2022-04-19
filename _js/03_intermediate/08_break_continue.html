@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break, Continue 키워드</title>
+</head>
+<body>
+    <h1>
+        break: 특정 조건에서 반복을 중지하고 싶을 떼 사용
+        continue: 특정 조건에서 실행을 건너뛰고 반복을 이어가고 싶을 때 사용
+    </h1>
+    <ul>
+        <li>
+            제어문에서 주로 사용되며 break; 키워드를 포함하고 있는 반복문을 중지하고 싶을 때 조건문 내부에 선언하는 것이 일반적
+        </li>
+        <li>
+            break;가 작동되면 반복문 내에서 break; 아래에 있는 코드는 실행하지 않으므로 실행 시점을 잘 판단한여 사용해야함
+        </li>
+        <li>
+            break;와 retrun을 동시에 사용헐 때도 주의해야함
+        </li>
+        <li>
+            continue;는 특정시점에서 조건을 수행 한 후 아래의 코드를 스킵하고 반복을 지속함
+        </li>
+        <li>
+            continue;는 반복문을 멈추는 것이 아니어서 잘못 이해하면 무한반복을 만들어낼 가능성이 있으니 주의해서 사용하여야함
+        </li>
+    </ul>
+    <script>
+        let count = 0;
+        while (count < 100) {
+            console.log(count + 1, '회 실행하는 중...');
+            if(count == 7) {
+                console.log('7회를 실행 한 후 8회 실행중 중지');
+                break;
+            }
+            console.log(count + 1, '회 실행하고 다음횟수로 이동 준비...');
+            count++;
+        }
+
+    let idx = 0;
+    do {
+        if(idx % 2 == 1) {
+            console.log(`${idx}는 홀수 입니다.`)
+            idx++;
+            continue;
+        }
+        console.log(`${idx}는 짝수 입니다.`)
+        idx++;
+    } while (idx < 100);
+
+    for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 7; j++) {
+            if (i == 2 || i ==4) {
+                console.log('내부 반복문의 if문 안에 있는 i j'. i, j);
+                break;
+            }
+            console.log('내부 반복문의 끝 j', j);
+        }
+        console.log('외부 반복문의 끝 i', i);
+    }
+    </script>
+</body>
+</html>

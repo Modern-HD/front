@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 순환</title>
+</head>
+<body>
+    <h1>
+        순환할 수 있는 구조를 이용하여 특정 기능을 할 수 있는 메서드가 제공됩니다
+    </h1>
+    <ul>
+        <li>
+            array.forEach(callback function): 일반 반복문과 유사한 형태
+        </li>
+        <li>
+            array.map(callback function): forEach를 수행하면서 연산결과를 리턴하여 새로운 배열을 만들어 줌
+        </li>
+        <li>
+            array.filter(callback function): map처럼 수행하면서 연산결과를 리턴하는데 연산의 종류가 비교연산의 결과에서 true에 해당하는 값만 필터링 해서 리턴함
+        </li>
+    </ul>
+    <script>
+        const numArr = [12, 3, 46, 75, 23, 17, 's', 'p', 'g'];
+        const strArr = ['a', 'b', 'f', 's', 'p', 'g'];
+        numArr.forEach(function(elem_value, index, self) {
+            console.log(index, elem_value, self[index]);
+        });
+        console.log('=-=-=-==-=-=-=-(el, i, arr)=-=-=-=-=-=-=-=-');
+        strArr.forEach(function(elem_value, index, self) {
+            console.log(index, elem_value, self[index]);
+        });
+        console.log('=-=-=-==-=-=-=-(el, i)=-=-=-=-=-=-=-=-');
+        strArr.forEach(function(elem_value, index) {
+            console.log(index, elem_value);
+        });
+        console.log('=-=-=-==-=-=-=-(el)=-=-=-=-=-=-=-=-');
+        strArr.forEach(function(elem_value) {
+            console.log(elem_value);
+        }); // 이렇게 메서드 명이 같아도 파라미터의 형태를 달리하여 중복으로 사용할 수 있게 만드는 기법을 => 메서드 오버로딩(method overloading)이라 한다
+        console.log('=-=-=-==-=-=-=- invoke callback function =-=-=-=-=-=-=-=-');
+        function printNumber(el, i, arr) {
+            console.log(i, el);
+        }
+        numArr.forEach(printNumber);
+        console.log('=-=-=-==-=-=-=- Arrfunc =-=-=-=-=-=-=-=-');
+        numArr.forEach(el => {
+            console.log(el);
+        });
+        console.log('=-=-=-==-=-=-=-map() invokr callback function =-=-=-=-=-=-=-=-');
+        function printNumberMap(el, i, arr) {
+            return `${i}:${el}:${arr[i]}`;
+        }
+        const newStrArr = strArr.map(printNumberMap);
+        console.log(newStrArr);
+
+        const newStrArr2 = strArr.map(function(el, i){
+            return `${i}:${el}`;
+        });
+        console.log(newStrArr2);
+        
+        console.log('=-=-=-==-=-=-=-forEach(el, i)=-=-=-=-=-=-=-=-');
+        const newStrArr3 = strArr.forEach(function(elem_value, index) {
+            return `${index}:${elem_value}`;
+        });
+        console.log(newStrArr3);
+        // forEach는 리턴이 없는 반복 메서드, map은 리턴이 있는 반복 메서드
+
+        console.log('=-=-=-==-=-=-=-filter() invokr callback function =-=-=-=-=-=-=-=-');
+        const newNumArr = numArr.filter(function(el, i, arr){
+            return !isNaN(el);
+        });
+        console.log(newNumArr);
+    </script>
+</body>
+</html>
