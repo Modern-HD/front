@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>섭씨를 화씨로</title>
+</head>
+<body>
+    <h1>
+        한국에 있는 친구가 미국에 있는 미국 친구에게 온도를 알려주고 싶다고 가정
+    </h1>
+    <ul>
+        <li>
+            섭씨 온도를 입력하면 화씨 온도를 출력해주는 시스템
+        </li>
+        <li>
+            입력한 섭씨 온도는 배열에 계속해서 저장이 되고
+        </li>
+        <li>
+            저장된 섭씨 온도는 화씨온도로 변환되서 화씨 온도의 배열로 저정
+        </li>
+        <li>
+            출력버튼을 클릭하면 섭씨온도 => 화씨온도의 리스트 형태로 출력
+        </li>
+    </ul>
+    <label for="temp_input">섭씨온도: </label><input type="number" id="temp_input"> <button id="btn">화씨 온도로 변환</button>
+    <h2 id="printf"></h2>
+    <h3 id="print_list"></h3>
+    <script>
+        let temp_c_arr = [];
+        let temp_f_arr = [];
+
+        document.getElementById('btn').addEventListener('click', function() {
+            let temp_c = document.getElementById('temp_input').value;
+            temp_change(temp_c);
+        });
+
+        function temp_change(temp_c) {
+            temp_c_arr[temp_c_arr.length] = temp_c;
+            let temp_f = (temp_c * 1.8) + 32;
+            temp_f_arr[temp_f_arr.length] = temp_f;
+            document.getElementById('printf').innerText = `${temp_f.toFixed(1)}℉`;
+            document.getElementById('print_list').innerText = ``;
+            for (let i = 0; i < temp_c_arr.length; i++) {
+                document.getElementById('print_list').innerHTML += `${temp_c_arr[i]}℃ → ${temp_f_arr[i].toFixed(1)}℉<br>`;
+            }
+        }
+    </script>
+</body>
+</html>

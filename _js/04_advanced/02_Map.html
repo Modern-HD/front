@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <h1>
+        Map: Key / Value 형태의 데이터를 한 개의 배열로 만들어서 다시 배열에 저장하는 방식
+    </h1>
+    <ul>
+        <li>
+            선언 및 초기화: new Map(), new Map(["key", value],["key", value]...)
+        </li>
+        <li>
+            기본적으로 중첩 구조이기 때문에 key의 중복확인이 필수
+        </li>
+        <li>
+            Key를 식별자로 사용하는 방식이므로 get("keyName"), set("keyName", Value) 메서드를 제공
+        </li>
+        <li>
+            자바스크립트 객체를 배열화 시킨 구조라고 생각하면 편함 => 2차원 배열과 비슷한 형식
+        </li>
+        <li>
+            기본적으로 Map은 타입제한을 하는 것이 원칙이다! => key의 타입이 달라지면 관리가 어려워지기 때문 => 자바스크립트 객체도 key는 모두 문자열을 사용하는 것과 같은 원리
+        </li>
+    </ul>
+    <img src="images/02_Map_methods.png" style="width: 33%;">
+    <h3>
+        JavaScript Object vs Map
+    </h3>
+    <img src="images/03_Map_VS_JS-Object.png" style="width: 33%;">
+    <script>
+        const myMap = new Map();
+        myMap.set("html", 80);
+        myMap.set("css", 70);
+        myMap.set("js", 88);
+        console.log(myMap);
+
+        console.log(myMap.get('js')); //key를 지시하면 value를 준다!
+
+        myMap.delete('css');
+        console.log(myMap);
+        console.log(myMap.has('css'));
+
+        console.log('===================');
+        myMap.forEach(function(value, key, self){
+            console.log(key, value);
+        });
+        console.log('-------------------');
+        console.log(myMap.entries());
+        
+        // myMap.entries().forEach(function(value, key, self){
+        //     console.log(key, value);
+        // }); // 작동안됨!!
+
+        for (const iter of myMap.entries()) {
+            for (const key in iter) {
+                console.log(key);
+                console.log(iter[key]);
+            }
+            console.log("************")
+        }
+
+        console.log(myMap.keys());
+        console.log(myMap.values());
+    </script>
+</body>
+</html>
