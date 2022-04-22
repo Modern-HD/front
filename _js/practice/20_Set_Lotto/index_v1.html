@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또추첨기 Ver 1.0</title>
+</head>
+<body>
+    <h1>
+        1 ~ 45 까지의 중복되지 않는 숫자 6개를 랜덤으로 추출 후 순서대로 출력하기<br>
+        단, Set 객체를 사용할 것
+    </h1>
+    <button id="btn">로또 추첨!</button>
+    <button id="btn2">로또 추첨2!</button>
+    <h2>
+        뽑힌 번호는 <span id="printf"></span> 입니다!
+    </h2>
+    <script>
+        
+        document.getElementById('btn').addEventListener('click', function(){
+            let lotto_nums = new Set();
+            while (lotto_nums.size < 6) {
+                let ran_num = random();
+                lotto_nums.add(ran_num);
+            }
+            console.log(lotto_nums);
+            printf.innerText = '';
+                let i = 1
+                printf.innerHTML = '<br>'
+            lotto_nums.forEach((el) => {
+                printf.innerText += `${i}. `
+                printf.innerHTML += `${el}<br>`
+                i++;
+            })
+        })
+
+        document.getElementById('btn2').addEventListener('click', function(){
+            const rNumSet = new Set();
+            for (let i = 0; rNumSet.size<6 ; i++) {
+                let rNum = random();
+                rNumSet.add(rNum);
+                console.log(i, rNum); // 반복문이 실행된 횟수
+            }
+            console.log(rNumSet);
+
+            const rNumArr = [];
+            for (const rNum of rNumSet) {
+                rNumArr.push(rNum);
+            }
+
+            rNumArr.sort(function(a, b){return a - b});
+
+            console.log(rNumArr);
+        });
+
+        function random(){
+            let random_num = Math.floor(Math.random()*45)+1;
+            return random_num;
+        }
+    </script>
+</body>
+</html>

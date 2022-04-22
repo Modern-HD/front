@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또추첨기 Ver 2.0</title>
+</head>
+<body>
+    <h1>
+        1 ~ 45 까지의 중복되지 않는 숫자 6개를 랜덤으로 추출 후 순서대로 출력하기<br>
+        단, Set 객체를 사용하지 않고 중복검사 로직을 만들어서 사용할 것
+    </h1>
+    <button id="btn">로또 추첨!</button>
+    <button id="btn2">로또 추첨2!</button>
+    <h2>
+        뽑힌 번호는 <span id="printf"></span> 입니다!
+    </h2>
+    <script>
+        
+        document.getElementById('btn').addEventListener('click',function(){
+            let lotto_nums = [];
+            let printf = document.getElementById('printf');
+            while (lotto_nums.length < 6) {
+                let ran_num = random();
+                if (lotto_nums.indexOf(ran_num) != -1){
+                    continue;
+                }
+                lotto_nums.push(ran_num);
+            }
+
+            lotto_nums.sort(function(a, b){return a-b});
+
+            console.log(lotto_nums);
+            printf.innerText = '';
+            lotto_nums.forEach((el, i) => {
+                printf.innerText += `${el}`
+                if (i != lotto_nums.length - 1) {
+                    printf.innerText += ', '
+                }
+            })
+        })
+
+        document.getElementById('btn2').addEventListener('click', function(){
+            const lottoArr = [];
+
+            // do {
+            //     let rNum = random();
+            //     if (!lottoArr.includes(rNum)){
+            //         lottoArr.push(rNum);
+            //     }
+            // } while (lottoArr.length < 6);
+
+            for (let i = 0; lottoArr.length < 6; i++) {
+                let rNum = random();
+                lottoArr.push(rNum);
+
+            
+                for (let j = 0; j < lottoArr.length; j++) {
+                    if(rNum == lottoArr[j]){
+                        lottoArr.pop();
+                        i--;
+                        break;
+                    }
+                }
+
+            }
+            console.log(lottoArr);
+        })
+
+        function random(){
+            let random_num = Math.floor(Math.random()*45)+1;
+            return random_num;
+        }
+    </script>
+</body>
+</html>
