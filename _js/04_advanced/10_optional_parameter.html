@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>옵셔널 파라미터</title>
+</head>
+<body>
+    <h1>
+        옵셔널 파라미터: 파라미터의 값이 전달되지 않았을 때 기본값이 설정된 파라미텉ㄴ
+    </h1>
+    <ul>
+        <li>
+            옵셔널 파라미터는 arguments 프로퍼티에 값이 저장되지 않는다.
+        </li>
+        <li>
+            옵셔널 파라미터는 항상 일반적인 파라미터들 보다 항상 뒤에 있어야 한다!!!!!!!!!
+        </li>
+        <li>
+            옵셔널 파라미터의 개수와 관계없이 가장 뒤에 설정해야 한다.
+        </li>
+        <li>
+            이유 => 생략된 파라미터가 일반 파라미터의 순서와 구분이 안되기 때문!
+        </li>
+    </ul>
+    <script>
+        // 개수가 안맞으면 f는 무조건 undefined => 그러므로 옵셔널 파라미터는 마지막에!
+        function myFunc(a,b,c,d="100",e=0,f) { 
+            console.log(a,b,c,d,e,f);
+        }
+        myFunc(1,2,3,4);
+
+        function myFunction(x, py) {
+            let y = py;
+            if (y === undefined) {
+                y = 2;
+            }
+            console.log(x, y);
+        }
+
+        function myFunction2(x, y=2) {
+            console.log(x, y);
+        }
+    </script>
+</body>
+</html>

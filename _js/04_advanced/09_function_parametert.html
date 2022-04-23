@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수와 메서드의 파라미터</title>
+</head>
+<body>
+    <h1>
+        자바스크립트의 파라미터 특징과 기능
+    </h1>
+    <ul>
+        <li>
+            파라미터의 개수와 관계없이 함수나 메서드의 이름이 같다면 호출이 가능
+        </li>
+        <li>
+            파라미터의 개수가 불일치 하여 값을 받지 않는 파라미터는 undefined 처리
+        </li>
+        <li>
+            값을 받아오지 않는 파라미터가 undefined일 때 별도로 파라미터에 기본값을 설정할 수 있다 => Optional Parameter
+        </li>
+        <li>
+            모든 파라미터를 관리하는 arguments라는 프로퍼티를 이용하여 파라미터를 배열에 담아 사용할 수도 있다: 프로토타입의 속성(프로퍼티)을 사용하는 방식 => 옵셔널 파라미터의 값은 저장하지 않는다!
+        </li>
+    </ul>
+    <script>
+        function testFunc(p1, p2, p3, p4, p5=1) {
+            console.log(arguments);
+            console.log(arguments.length);
+            console.log(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
+            return p1+p2-p3*p4/p5;
+        }
+        console.log(testFunc(1,2,3,4,5)); // return => 0.6....
+        console.log(testFunc(1,2,3,4)); // return => -9
+
+    </script>
+</body>
+</html>
