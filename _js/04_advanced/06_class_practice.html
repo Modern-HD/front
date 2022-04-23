@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 연습</title>
+</head>
+<body>
+    <h1>
+        자바스크립트 클래스
+    </h1>
+    <ul>
+        <li>
+            추상화 작업의 대표적인 코드 결과물
+        </li>
+        <li>
+            객체를 생성하기 전 설계도를 만든다는 개념으로 접근
+        </li>
+        <li>
+            개념적인 분류를 통해 필요한 속성(상태: 변수)과 기능(메서드)등을 정의함
+        </li>
+        <li>
+            클래스를 통해 생성된 객체는 인스턴스라고 하며 데이터 관리의 기준제 역할을 함
+        </li>
+    </ul>
+    <script>
+        let myAccount = {
+            name: 'park',
+            balance: 0,
+            deposit: function (amount){
+                this.balance += amount;
+            },
+            withdraw: function (amount){
+                this.balance -= amount;
+            },
+            transfer: function (amount, otherAccount){
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        };
+        let yourAccount = {
+            name: 'kim',
+            balance: 100,
+            deposit: function (amount){
+                this.balance += amount;
+            },
+            withdraw: function (amount){
+                this.balance -= amount;
+            },
+            transfer: function (amount, otherAccount){
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        };
+
+        // 내 계좌에 입금 현황
+        console.log(myAccount.name,":",myAccount.balance);
+        myAccount.deposit(100);
+        console.log(myAccount.name,":",myAccount.balance);
+        console.log("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+        //송금
+        myAccount.transfer(100,yourAccount);
+        console.log(myAccount.name,":",myAccount.balance);
+        console.log(yourAccount.name,":",yourAccount.balance);
+
+
+        class BankAccount {
+            constructor(name, amount){
+                this.name = name;
+                this.balance = amount;
+            }
+            deposit(amount){
+                this.balance += amount;
+            }
+            transfer(amount, account){
+                this.balance -= amount;
+                account.balance += amount;
+            }
+        }
+
+        let hisAcc = new BankAccount('Lee',10000);
+        let herAcc = new BankAccount('choi',20000);
+        
+        // Lee 계좌에 100000원 입금 후 확인
+        hisAcc.deposit(100000);
+        console.log("100000원 입금",hisAcc.balance);
+        // choi 계좌에서 5000원 출금 후 확인
+        herAcc.deposit(-5000);
+        console.log("5000원 출금",herAcc.balance);
+        // Lee가 choi에게 5000원 송금 후 두 계좌 상태 확인
+        hisAcc.transfer(5000, herAcc);
+        console.log("5000원 송금", hisAcc.balance);
+        console.log("5000원 수금", herAcc.balance);
+
+        // myAccount, yourAccount, hisAcc, herAcc 끼리 크로스 체크
+        hisAcc.transfer(1000, myAccount);
+        console.log(hisAcc.balance);
+        console.log(myAccount.balance);
+    </script>
+</body>
+</html>

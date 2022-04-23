@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h1>
+        JSON: JavaScript Object Notation: 자바스크립트 객체 표기법
+    </h1>
+    <ul>
+        <li>
+            데이터의 요청 및 응답처리에 필요한 데이터의 표준 형식을 제공하는 타입
+        </li>
+        <li>
+            백엔드 언의 종류에 관계없이 데이터 송수신을 단일 형식으로 통일합
+        </li>
+        <li>
+            데이터의 전송은 모두 string 타입으로 이루어지기 때문에 송수신 모듈에서 타입의 변환이 필요함
+        </li>
+        <li>
+            서버로 데이터 보낼 때 > json to string > JSON.stringify(jsObject)
+        </li>
+        <li>
+            서버로부터 데이터를 받을 때 > string to json > JSON.Parse(stringData)
+        </li>
+    </ul>
+    <script>
+        
+        const stringData = '{"id": "0001","type": "donut","name": "Cake",'
+        + '"image":   {"url": "images/0001.jpg","width": 200,   "height": 200},'
+        + '"thumbnail":   {"url": "images/thumbnails/0001.jpg","width": 32,"height": 32}}';
+
+        
+        let parsedData = JSON.parse(stringData);
+        console.log(parsedData);
+        for (const key in parsedData) {
+            if(typeof parsedData[key] !== 'object') {
+                console.log(`key: ${key}, value: ${parsedData[key]}`);
+            } else {
+                console.log(`------key: ${key}------`);
+                for (const key2 in parsedData[key]) {
+                    console.log(`key: ${key2}, value: ${parsedData[key][key2]}`);
+                }
+                console.log('------------------------');
+            }
+            }
+        console.log('-=-=-=-=-=-=-=-=-=-')
+
+        const myInfoData = {
+            "name": 'park',
+            "age": '24',
+            "blood": 'F',
+            "major": 'Financial',
+            "addr": 'seoul'
+        };
+
+        let stringedData = JSON.stringify(myInfoData);
+        console.log(typeof stringedData);
+        console.log(stringedData);
+
+        let test1 = 'start';
+        console.log('-=-=-=-=-=mk.2-=-=-=-=-')
+
+        let stringedData2 = stringifyMK2(myInfoData);
+
+        console.log(typeof stringedData2);
+        console.log(stringedData2);
+        console.log(JSON.parse(stringedData2));
+
+        function stringifyMK2(object) {
+            let str = `{`;
+            for (const key in object) {
+                str += `"${key}":"${object[key]}",`
+            }
+            str = str.slice(0,-1);
+            str += `}`;
+            return str;
+        }
+
+    </script>
+</body>
+</html>
