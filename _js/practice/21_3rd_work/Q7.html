@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/Q7_public.css">
+    <link rel="stylesheet" href="src/css/Q7.css">
+    <title>Quiz 7</title>
+</head>
+<body>
+    <nav>
+        <a class="logo" href=""></a>
+        <ul>
+            <li class="menu" value="0">객실현황보기</li>
+            <li class="menu" value="1">입실</li>
+            <li class="menu" value="2">퇴실</li>
+            <li class="menu"  value="3">초기화</li>
+        </ul>
+    </nav>
+    <section>
+        <div class="bg-image">
+            <div class="bg-shadow"></div>
+        </div>
+        <div class="bg-container">
+            <h1>현대호텔에 오신 것을 환영합니다.</h1>
+            <h3>현대호텔은 고객님께 항상 최선을 다합니다.</h3>
+            <button id="live-btn2" class="btn" type="button">객실현황보기</button>
+            <button id="random_enter_btn" class="btn" type="button">랜덤 입실</button>
+        </div>
+    </section>
+    <div id="live_window" class="container modal wd-col10 radius20 display-none">
+        <div class="inner-nav">
+            <h2>객실 현황</h2>
+            <ul>
+                <li class="menu" value="0">새로고침</li>
+                <li class="menu" value="1">입실</li>
+                <li class="menu" value="2">퇴실</li>
+                <li class="menu close"  value="4"><i class="fa fa-times-circle"></i></li>
+            </ul>
+        </div>
+        <div class="inner-section">
+            <table id="live_table" class="text-centor">
+            </table>
+        </div>
+    </div>
+
+    <div id="enter_window" class="container modal wd-col10 radius20 display-none">
+        <div class="inner-nav">
+            <h2>입실</h2>
+            <ul>
+                <li class="menu" value="0">객실현황보기</li>
+                <li class="menu" value="2">퇴실</li>
+                <li class="menu close"  value="4"><i class="fa fa-times-circle"></i></li>
+            </ul>
+        </div>
+        <div class="inner-section">
+                <div class="text-centor">
+                    <select id="room_selection1" class="selections sele1">
+                        <option value="" selected disabled>선택하세요</option>
+                    </select>
+                </div>
+                <div id="entering_page" class="text-centor display-none another-page">
+                    <h2>객실 정보</h2>
+                    <div id="room_images1" class="room-images">
+                    </div>
+                    <h3>
+                        <span id="room_num_area"></span>호</h3>
+                    <div id="entering_form" class="room-form">
+                        <p>
+                            <label for="input_date1">퇴실하실 날: </label><input type="date" id="input_date1">
+                        </p>
+                        <p>
+                            <label for="input_hour1">퇴실 시간:</label>
+                            <select id="input_hour1">
+                                <option value="" selected disabled>선택하세요</option>
+                                <option value="07">07:00</option>
+                                <option value="09">09:00</option>
+                                <option value="12">12:00</option>
+                                <option value="15">15:00</option>
+                                <option value="18">18:00</option>
+                                <option value="21">21:00</option>
+                                <option value="23">23:00</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="input_human1">인원수:</label>
+                            <select id="input_human1">
+                                <option value="" selected disabled>선택하세요</option>
+                                <option value="1">1명</option>
+                                <option value="2">2명</option>
+                                <option value="3">3명</option>
+                                <option value="4">4명</option>
+                                <option value="5">5명</option>
+                                <option value="6">6명</option>
+                            </select>
+                        </p>
+                        <button id="entering_btn" type="button" class="btn">입실 하기</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <div id="leave_window" class="container modal wd-col10 radius20 display-none">
+        <div class="inner-nav">
+            <h2>퇴실</h2>
+            <ul>
+                <li class="menu" value="0">객실현황보기</li>
+                <li class="menu" value="1">입실</li>
+                <li class="menu close"  value="4"><i class="fa fa-times-circle"></i></li>
+            </ul>
+        </div>
+        <div class="inner-section">
+            <div class="text-centor">
+                <select id="room_selection2" class="selections sele2">
+                    <option value="" selected disabled>선택하세요</option>
+                </select>
+            </div>
+            <div id="leaving_page" class="text-centor display-none another-page">
+                <h2>객실 정보</h2>
+                <div id="room_images2" class="room-images">
+                </div>
+                <h3>
+                    <span id="room_num_area2"></span>호</h3>
+                <div id="leaving_form" class="room-form">
+                    <p>
+                        입실 시간: <span id="leaving_enter_time2"></span>
+                    </p>
+                    <p>
+                        퇴실 예정: <span id="leaving_leave_time2"></span>
+                    </p>
+                    <p>
+                        현재 인원: <span id="leaving_human2"></span>
+                    </p>
+                    <button id="leaving_btn" type="button" class="btn">퇴실 하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/load.js"></script>
+    <script src="src/js/Q7.js"></script>
+</body>
+</html>
