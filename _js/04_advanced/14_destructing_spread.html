@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructing, Spread</title>
+</head>
+<body>
+    <h1>
+        해체(Destructing), 펼침(Spread): 자바스크립트의 데이터를 좀 더 유연하게 사용하기 위한 문법: ES2018 부터 적극사용 되어짐
+    </h1>
+    <ul>
+        <li>
+            배열과 객체의 데이터를 펼치는 모양으로 선언 및 생성할 수 있다.
+        </li>
+        <li>
+            ...는 spread 연산자라고 하며 배열과 객체를 복제하늗 데 사용한다.
+        </li>
+    </ul>
+    <script>
+        // desructing
+        let arr1 = ['a', 'b', 'c', 'd', 'e'];
+        let [first, second, third, fourth, fifth='z'] = arr1;
+        console.log(first, second, third, fourth, fifth);
+
+        let [park, kim, ...other] = arr1;
+        console.log(park,kim,other);
+
+        // data value exchange(데이터 값 상호교환)
+        let html = 'back-end';
+        let java = 'front-end';
+        
+        // let temp = html;
+        // html = java;
+        // java = temp;
+
+        // destructing
+        [html, java] = [java, html];
+
+        console.log(html, java);
+
+        const laptop = {
+            title: 'Apple MacBook M1 pro',
+            price: 2000000,
+            cpu: 'M1',
+            ram: '8GB',
+            ssd: '256GB',
+            display: 'Retina',
+            touchBar: true,
+            core: '8core'
+        };
+
+        console.log(laptop.cpu, laptop.ram);
+        let {cpu, ram} = laptop; // ES2018 부터 가능
+        console.log(cpu, ram);
+
+        let {display, thunderbold='2ea'} = laptop;
+        console.log(display, thunderbold);
+
+        let m1 = {
+            model: 'Apple MacBook Air',
+            won: 1700000,
+            processor: '15',
+            memory: '8GB',
+            storage: 128,
+            pixel: 'RETINA',
+            typeC: true,
+            'serial-number': 'A2290'
+        };
+
+        let {model:gen, 'serial-number':serialNumber} = m1;
+        console.log(gen, serialNumber);
+
+        let propName = 'won';
+        let {[propName] : kw} = m1;
+        console.log(kw);
+
+        let oldArr = ['a','b','c'];
+        let newObj = {...oldArr};
+        console.log(newObj);
+        console.log(newObj[0]);
+        console.log(newObj['0']);
+        // for of로 iterable 확인하기 전까지 확신하지 말것!
+        // key값이 숫자로 보여도 자바스크립트가 valuation을 통해 숫자를 넣어도 같은 값으로 판단하는 것임에 속지 말자!
+        for (const key in newObj) {
+            console.log(newObj[key]);
+        }
+
+
+        
+    </script>
+</body>
+</html>
