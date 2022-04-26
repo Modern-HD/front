@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Travel</h1>
+    <ul>
+        <li value="0" class="pick">Home</li>
+        <li value="1">Seoul</li>
+        <li value="2">Tokyo</li>
+        <li value="3">Paris</li>
+    </ul>
+    <div id="images"></div>
+    <script>
+
+        document.querySelectorAll('li').forEach((el)=>{
+            el.addEventListener('click',function(){
+                image_change(this);
+            })
+        })
+
+        function image_change(me) {
+            class_clean();
+            me.classList.add('pick');
+            let area = document.getElementById('images');
+            switch (me.value) {
+                case 0:
+                    area.style.backgroundImage= "url(images/HomePic.jpg)"
+                    break;
+                case 1:
+                    area.style.backgroundImage= "url(images/SeoulPic.jpg)"
+                    break;
+                case 2:
+                    area.style.backgroundImage= "url(images/TokyoPic.jpg)"
+                    break;
+                case 3:
+                    area.style.backgroundImage= "url(images/ParisPic.jpg)"
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function class_clean() {
+            document.querySelectorAll('li').forEach((el)=>{
+                el.classList.remove('pick');
+            })
+        }
+
+    </script>
+</body>
+</html>

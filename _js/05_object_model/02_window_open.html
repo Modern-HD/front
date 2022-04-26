@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window 팝업 창</title>
+</head>
+<body>
+    <h1>
+        과거에 많이 사용되었으나 디자인과 팝업창이 데이터와 유기적인 컨트롤이 어려워 지금은 지양되고 있다.
+    </h1>
+    <ul>
+        <li>
+            window.open('url', 'window name', 'options(size, scroll...)')
+        </li>
+    </ul>
+    <button type="button" onclick="openWindow();">열기</button>
+    <button type="button" onclick="closeWindow();">닫기</button>
+    <button type="button" onclick="checkWindow();">체크하기</button>
+    <h1 id="msg"></h1>
+    <script>
+        let myWindow;
+        function openWindow() {
+            myWindow = window.open("", "myWindow", "width=400, height=500")
+        }
+        function closeWindow() {
+            if (myWindow) {
+                myWindow.close();
+            }
+        }
+        function checkWindow() {
+            if (!myWindow) {
+                document.getElementById('msg').innerText = 'myWindow가 한 번도 열리지 않았습니다!'
+            } else {
+                if (myWindow.closed) {
+                    document.getElementById('msg').innerText = 'myWindow가 닫혔습니다!'
+                } else {
+                    document.getElementById('msg').innerText = 'myWindow가 닫히지 않았습니다!'
+                }
+            }
+        }
+    </script>
+</body>
+</html>
