@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout method</title>
+</head>
+<body>
+    <h1>
+        setTimeout(callback function, duration) : duration(millisecond) 후에 callback function을 실행
+    </h1>
+    <h2>
+        setTimeout을 할당한 객체를 clearTimeout(할당한 객체)으로 취소 가능
+    </h2>
+    <button type="button" id="start">Start it</button>
+    <button type="button" id="finish">Finish it</button>
+    <h1 id="printResult"></h1>
+    <script>
+        let timeObj;
+        document.getElementById('start').onclick = () => {
+            timeObj = setTimeout(myFunction, 3000);
+        };
+        document.getElementById('finish').onclick = () => {
+            clearTimeout(timeObj);
+        };
+        function myFunction() {
+            document.getElementById('printResult').innerText = '3초 후에 나타나야되는 메세지';
+        }
+    </script>
+    <h3>
+        <a href="07_history_object.html">07_history_object.html</a>
+    </h3>
+</body>
+</html>

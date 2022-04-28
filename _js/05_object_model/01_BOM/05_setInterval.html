@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval method</title>
+    <style>
+        #h1 {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1">
+        setInterval(callback function, interval duration): duration(millisecond)을 주기로 지속적으로 callback function을 실행하는 메서드
+    </h1>
+    <h1>
+        clearInterval(할당받은 객체)로 중지
+    </h1>
+    <button type="button" id="start">Start it</button>
+    <button type="button" id="finish">Finish it</button>
+    <script>
+        let intervalObj;
+        function changeColor() {
+            intervalObj = setInterval(flashColor, 500);
+        }
+        function flashColor() {
+            let elem = document.getElementById('h1');
+            elem.style.color = (elem.style.color == 'white' ? 'red' : 'white');
+            elem.style.backgroundColor =
+            (elem.style.backgroundColor = (elem.style.backgroundColor == 'red' ? 'yellow' : 'red'))
+        }
+        function stopFlashColor() {
+            clearInterval(intervalObj);
+        }
+        document.getElementById('start').addEventListener('click',changeColor);
+        document.getElementById('finish').addEventListener('click',stopFlashColor);
+    </script>
+    <h3>
+        <a href="06_location_href.html">06_location_href.html</a>
+    </h3>
+</body>
+</html>

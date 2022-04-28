@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location.href</title>
+</head>
+<body>
+    <h1>
+        location 객체는 브라우저의 주소표시줄 입력에 관련된 객체
+    </h1>
+    <ul>
+        <li>
+            location.href = 'url' : 'url'로 이동시킨다
+        </li>
+        <li>
+            location.replace('url'): 'url'로 이동시킨다. 하지만 이전페이지를 history객체에 저장하지 않는다.
+        </li>
+    </ul>
+    <button type="button" id="moveByhref">href를 사용한 이동</button>
+    <button type="button" id="moveByreplace">replace()를 사용한 이동</button>
+    <button type="button" id="moveByassign">assign()를 사용한 이동</button>
+    <button type="button" id="moveByreload">reload()를 사용한 페이지 재호출</button>
+    <button type="button" id="btn">Location 객체 살펴보기</button>
+    <ol id="print">
+
+    </ol>
+    <script>
+        alert('페이지 이동관련 호출');
+        document.getElementById('moveByhref').onclick = () => {
+            location.href = 'https://www.google.com';
+        }
+        document.getElementById('moveByreplace').onclick = () => {
+            location.replace('https://naver.com');
+        }
+        document.getElementById('moveByassign').onclick = () => {
+            location.assign('https://google.com');
+        }
+        document.getElementById('moveByreload').onclick = () => {
+            location.reload();
+        }
+        document.getElementById('btn').onclick = () => {
+            let printElem = document.getElementById('print');
+            for (const key in window.location) {
+                printElem.innerHTML += `<li>${key}: ${window.location[key]}</li>`;
+            }
+        }
+    </script>
+    <h3>
+        <a href="04_setTimeout.html">04_setTimeout.html</a>
+    </h3>
+</body>
+</html>
