@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element의 CSS</title>
+    <style>
+        .yellow {
+            background-color: yellow;
+        }
+        .black {
+            background-color: black;
+        }
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        CSS 적용은 element.style.property 형식으로 접근 및 변경을 하면 된다.
+    </h1>
+    <ul>
+        <li>
+            property는 자바스크립트의 코드이기 때문애 띄어쓰기나 -(하이픈)이 적용 안됨
+        </li>
+        <li>
+            그러므로 css의 프로퍼티의 -(하이픈)을 제거한 후 바로 뒤에 오는 문자를 대문자로 변경하면 됨, 즉 camelCase 형식으로 만들어 낸다고 생각하면 됨.
+        </li>
+    </ul>
+    <h1 id="test">색상명을 입력하고 색상변경 버튼을 클릭하면 현재 h1의 배경색이 입력한 배경색으로 변경되게 해보세요. 단, style 속성을 사용하지 말 것</h1>
+    <input type="text" id="colorValue"><button type="button" id="changeBtn">색상변경</button>
+    <hr>
+    <img src="../../practice/21_3rd_work/src/images/room_image1.jpg" alt="" id="img">
+    <br>
+    <input type="text" id="attrName">
+    <input type="text" id="attrValue">
+    <button type="button" id="btn">속성 변경 텍스트</button>
+    <script>
+        
+        document.getElementById('btn').addEventListener('click', ()=> {
+            const img = document.getElementById('img');
+            let attrName = document.getElementById('attrName').value;
+            let attrValue = document.getElementById('attrValue').value;
+            // img[attrName] = attrValue;
+            img.setAttribute(attrName, attrValue);
+        })
+
+        const lis = document.getElementsByTagName('li');
+        for (const li of lis) {
+            li.style.backgroundColor = 'black';
+            li.style.color = 'yellow';
+            // li.style.textDecoration = 'underline';
+            li.style.setProperty('text-decoration', 'underline');
+        }
+        
+        console.log(document.querySelectorAll('#test'));
+        
+        document.getElementById('changeBtn').addEventListener('click', function(){
+            let color = document.getElementById('colorValue').value;
+            let elem = document.getElementById('test');
+            change_color3(elem, color);
+        });
+        
+        // css의 변경대상과 분량이 적을 때 사용
+        function change_color(elem, color) {
+            elem.style.backgroundColor = `${color}`;
+        }
+        
+        // css의 변경대상과 분량이 많을 때 사용
+        function change_color2(elem, color) {
+            elem.classList.remove(elem.classList[0]);
+            elem.classList.add(color);
+        }
+
+        function change_color3(elem, color) {
+            elem.className = color;
+        }
+
+
+    </script>
+</body>
+</html>
