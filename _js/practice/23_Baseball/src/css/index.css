@@ -1,0 +1,86 @@
+.info > ul,ol {
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.info li {
+    margin: 5px 0;
+}
+
+header {
+    height: 300px;
+    background-image: url(../images/header2.jpg);
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-bottom: 3px solid #ddd;
+}
+
+section, aside {
+    height: 748px;
+}
+
+aside {
+    border-left: 3px solid #ddd;
+}
+
+.input-table {
+    border: 2px solid skyblue;
+    border-radius: 10px;
+}
+
+#input_text:disabled {
+    background-color: white;
+    border: 2px solid sandybrown;
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+    font-size: 2em;
+    margin: 20px;
+}
+
+section > button {
+    margin: 20px 0;
+}
+
+aside {
+    overflow-y: scroll;
+}
+
+#save_window {
+    height: 600px;
+}
+#save_window > table {
+    border-collapse: collapse;
+}
+#save_window > table td {
+    border: 2px solid black;
+    height: 25px;
+}
+#save_window > button {
+    margin: 20px 0;
+}
+.del-btn:hover:not(i) {
+    background-color: rgba(255, 130, 130, 0.6);
+    cursor: pointer;
+}
+
+.board-display {
+    margin-top: 40px;
+    border-radius: 10px;
+    border: 5px dashed green;
+    background-color: #333;
+    height: 80px;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 3em;
+    color: rgb(255, 236, 131);
+    position: relative;
+}
+
+#board_print {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

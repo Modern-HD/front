@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/public.css">
+    <link rel="stylesheet" href="src/css/index.css">
+    <title>숫자 야구 게임</title>
+</head>
+<body>
+    <div class="info modal col-6">
+        <h1>
+            0 ~ 9의 중복되지 않는 정수 3개를 랜덤으로 출제하면 맞추는 게임
+        </h1>
+        <h3>게임 규칙</h3>
+        <ol class="col-6">
+            <li>
+                야구게임 기록을 서버에 저장하여 조회 및 삭제를 할 수 있게 만들어 볼 것
+            </li>
+            <li>
+                서버측의 데이터 키(객체의 키)는 수정이 불가능하므로 재해석이 필요함
+            </li>
+            <li>
+                id: 자동생성, name: 게임 실행 유저 이름 or 컴퓨터의 정답
+            </li>
+            <li>
+                description: 컴퓨터의 정답 or 유저가 시도한 내용 및 결과
+            </li>
+            <li>
+                price: 소요된 시간, category_id: 총 시도 횟수 or 한 게임 동안 총 스트라이크 수
+            </li>
+            <li>
+                created: 게임종료시간, modified: 자동 생성
+            </li>
+            <li>
+                게임 종료시 게임기록은 자동저장 or 버튼을 만들어 저장
+            </li>
+            <li>
+                게임기록 조회는 리스트로 삭제는 리스트의 각 라인 우측에 삭제버튼을 제작 => 클릭하면 해당 라인 삭제
+            </li>
+        </ol>
+        <h3>제작 규칙</h3>
+        <ul class="col-6">
+            <li>
+                1게임을 완료한 시간을 측정할 것
+            </li>
+            <li>
+                게임을 진행하면서 숫자 추측 시도 횟수도 기록할 것
+            </li>
+            <li>
+                페이지를 리프레쉬 하거나 내부 프로그램을 종료하기 전까지의 기록을 오름차순으로 정렬하여 출력할 것
+            </li>
+        </ul>
+        <button class="btn btn-red modal-close-btn">알겠습니다</button>
+    </div>
+    <div id="save_window" class="modal col-8 display-none">
+        <h2>게임 기록</h2>
+        <table class="mg-x-auto">
+            <thead>
+                <tr>
+                    <td class="col-1">순번</td> <!-- id: 자동생성-->
+                    <td class="col-1">이름</td> <!-- name: 유저이름-->
+                    <td class="col-2">점수 기록</td> <!-- description: 게임 종합-->
+                    <td class="col-1">소요 시간</td> <!-- price: total_time -->
+                    <td class="col-1">총 회차</td> <!-- category_id: 시도횟수 -->
+                    <td class="col-2">시작 시간</td> <!-- created: 게임시작 -->
+                    <td class="col-2">종료 시간</td> <!-- modified: 자동생성(종료타임) -->
+                    <td class="col-05"></td>
+                </tr>
+            </thead>
+            <tbody id="save_print">
+            </tbody>
+        </table>
+        <button class="btn btn-red modal-close-btn">창 닫기</button>
+    </div>
+    <header class="col-12 test-border">
+    </header>
+    <section class="col-9 float-l text-centor">
+        <div class="board-display col-9 mg-x-auto">
+            <div id="board_print" class="col-12">
+                숫자를 입력해주세요.
+            </div>
+        </div>
+        <input type="text" id="input_text" class="text-centor" disabled value="">
+        <table class="input-table mg-x-auto">
+            <tr>
+                <td class="btn btn-blue">7</td>
+                <td class="btn btn-blue">8</td>
+                <td class="btn btn-blue">9</td>
+            </tr>
+            <tr>
+                <td class="btn btn-blue">6</td>
+                <td class="btn btn-blue">5</td>
+                <td class="btn btn-blue">4</td>
+            </tr>
+            <tr>
+                <td class="btn btn-blue">3</td>
+                <td class="btn btn-blue">2</td>
+                <td class="btn btn-blue">1</td>
+            </tr>
+            <tr>
+                <td class="btn btn-blue">C</td>
+                <td class="btn btn-blue">0</td>
+                <td class="btn btn-blue">◀</td>
+            </tr>
+        </table>
+        <button id="start_btn" class="btn btn-blue">숫자 전송</button>
+        <div>
+            <label for="uname">이름 입력 시 자동 저장: </label><input type="text" id="uname">
+        </div>
+    </section>
+    <aside class="col-3 float-l">
+        <div class="clear-both">
+            <ul id="result_area">
+            </ul>
+        </div>
+        <div class="text-centor">
+            <button id="open_save_btn" class="btn btn-blue">온라인 기록 보기</button>
+        </div>
+    </aside>
+    <footer class="clear-both">
+        
+    </footer>
+    <script src="src/js/index.js"></script>
+    <script src="src/js/load.js"></script>
+    <script src="src/js/save.js"></script>
+    <script src="src/js/del.js"></script>
+</body>
+</html>
