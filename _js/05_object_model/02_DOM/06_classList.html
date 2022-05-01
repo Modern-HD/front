@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList</title>
+</head>
+<body>
+    <h1>
+        Tag의 class 속성
+    </h1>
+    <ul class="ul list iter">
+        <li>
+            element.classList: class 속성의 값은 여러개가 올 수 있으므로 list 형태로 리턴 받는다.
+        </li>
+        <li>
+            리턴타입이 TokenList 객체이기 때문에 별도의 메서드를 사용하여 관리한다.
+        </li>
+        <li>
+            대표적인 메서드: add(), contains(), toggle(), remove() ...
+        </li>
+    </ul>
+    <script>
+        const ul = document.getElementsByTagName('ul');
+        console.log(ul);
+        console.log(ul[0].classList);
+        console.log(ul[0].classList.value);
+        console.log(ul[0].classList.length);
+        ul[0].classList[0] = 'ul2'; // 읽기전용 => 별도의 메서드가 필요
+        console.log(ul[0].classList[0]);
+
+
+        // 클래스 추가 메서드
+        ul[0].classList.add('added');
+        console.log(ul[0].classList);
+        
+        // 클래스 탐색 메서드: 리턴 boolean
+        console.log(ul[0].classList.contains('ul')); 
+
+        // 클래스 삭제 메서: 리턴 undefined
+        ul[0].classList.remove('iter');
+        console.log(ul[0].classList);
+
+        // 클래스 변환 메서드 : 있으면 삭제, 없으면 추가(마지막 위치에)
+        ul[0].classList.toggle('iter');
+        console.log(ul[0].classList);
+        ul[0].classList.toggle('ul');
+        console.log(ul[0].classList);
+        
+        // 클래스 대체 메서드 
+        ul[0].classList.replace('iter','ater');
+        console.log(ul[0].classList);
+
+        // 나머지 메서드들: 활용도가 적음
+        // forEach, keys, values, entries...
+    </script>
+</body>
+</html>
