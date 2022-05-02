@@ -50,6 +50,7 @@ aside {
 
 #save_window {
     height: 600px;
+    overflow-y: scroll;
 }
 #save_window > table {
     border-collapse: collapse;
@@ -83,4 +84,48 @@ aside {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+
+@media screen and (max-width:768px) {
+
+    #save_window {
+        width: 100%;
+    }
+
+    .info {
+        display: none;
+    }
+
+    .float-l {
+        float: none;
+    }
+
+    #save_window > table td {
+        font-size: 0.5em;
+    }
+
+    .board-display {
+        font-size: 2em;
+    }
+
+    section.col-9 {
+        width: 90%;
+    }
+    aside.col-3 {
+        width: 90%;
+    }
+
+    section, aside {
+        height: 500px;
+        margin: 0 auto;
+    }
+
+    section {
+        width: 100%;
+        border-bottom: 3px solid #ddd;
+    }
+
+    aside {
+        border: none;
+    }
 }

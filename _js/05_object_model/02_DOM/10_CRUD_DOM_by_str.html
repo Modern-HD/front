@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열로 문서 CRUD 해보기</title>
+</head>
+<body>
+    <button type="button" id="btn1">Li Tag 한번에 추가하기</button>
+    <button type="button" id="btn2">Li Tag 순차적 추가하기</button>
+    <button type="button" id="btn3">Li Tag 한번에 추가하기</button>
+    <ul id="ul"></ul>
+    <hr>
+    <ol id="ol"></ol>
+    <hr>
+    <ul id="ul2"></ul>
+    <script>
+        document.getElementById('btn1').addEventListener('click',()=>{
+            let str = '<li><a href="#html">HTML</a></li>';
+            str += '<li><a href="#css">CSS</a></li>';
+            str += '<li><a href="#javascript">JavaScript</a></li>';
+            str += '<li><a href="#sql">SQL</a></li>';
+            document.getElementById('ul').innerHTML = str;
+        });
+        
+        const lists = ['HTML','CSS','JavaScript','SQL'];
+        let idx = 0;
+
+        document.getElementById('btn2').addEventListener('click', () => {
+            if (idx>3) {
+                idx = 0;
+            }
+            const para1 = document.createElement('li');
+            const para2 = document.createElement(`a`);
+            para2.setAttribute('href', `#${lists[idx].toLowerCase()}`);
+            const node = document.createTextNode(`${lists[idx]}`);
+            para2.appendChild(node);
+            para1.appendChild(para2);
+            const ol = document.getElementById('ol');
+            ol.appendChild(para1);
+            idx++;
+        });
+
+        document.getElementById('btn3').addEventListener('click', () => {
+            lists.forEach((el)=>{
+                const para1 = document.createElement('li');
+                const para2 = document.createElement(`a`);
+                para2.setAttribute('href', `#${el.toLowerCase()}`);
+                const node = document.createTextNode(`${el}`);
+                para2.appendChild(node);
+                para1.appendChild(para2);
+                const ul2 = document.getElementById('ul2');
+                ul2.appendChild(para1);
+            });
+        });
+    </script>
+</body>
+</html>
