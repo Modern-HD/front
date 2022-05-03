@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Travel</h1>
+    <ul>
+        <li class="city home pick">Home</li>
+        <li class="city seoul">Seoul</li>
+        <li class="city tokyo">Tokyo</li>
+        <li class="city paris">Paris</li>
+    </ul>
+    <div id="images"></div>
+    <script>
+
+        document.getElementById('images').style.height = `${screen.availHeight-320}px`;
+
+        document.querySelectorAll('li').forEach((el)=>{
+            el.addEventListener('click', ()=>{
+                pick_clean();
+                el.classList.add('pick');
+                change_image(el);
+            })
+        });
+
+        function change_image(el) {
+            let city_name = el.classList[1].charAt(0).toUpperCase() + el.classList[1].slice(1);
+            document.getElementById('images').style.backgroundImage = `url(images/${city_name}Pic.jpg)`;
+        }
+
+        function pick_clean() {
+            document.querySelectorAll('li').forEach((el)=>{
+                el.classList.remove('pick');
+            })
+        }
+    </script>
+</body>
+</html>
