@@ -4,107 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Main</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            margin: auto;
-            background-color: #ddd;
-        }
-        .container {
-            text-align: center;
-        }
-        .banners {
-            display: inline-block;
-        }
-        .html {
-            border-width: 0 10px;
-            border-style: solid;
-            border-color: orangered;
-            width: 400px;
-            height: 748px;
-            background-image: url(images/HTML5_Logo.svg);
-            background-color: #eee;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 150%;
-            transform: skewX(-8deg);
-            transition-property: all;
-            float: left;
-            transition: 0.5s;
-        }
-        .css {
-            border-width: 0 10px;
-            border-style: solid;
-            border-color: blue;
-            width: 400px;
-            height: 748px;
-            background-image: url(images/CSS3_logo.svg);
-            background-color: #eee;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 106.25%;
-            transform: skewX(-8deg);
-            float: left;
-            transition: 0.5s;
-        }
-        .html:hover {
-            background-color: orange;
-        }
-        .css:hover {
-            background-color: lightskyblue;
-        }
-        @media screen and (max-width:1023px) {
-            .html {
-                width: 300px;
-                height: 400px;
-                transform: none;
-                border-width: 8px;
-                background-size: 100%;
-                margin: 150px 50px 0 auto;
-            }
-            .css {
-                margin: 150px auto 0 0;
-                float: right;
-                width: 300px;
-                height: 400px;
-                transform: none;
-                border-width: 8px;
-                background-size: 70%;
-            }
-        }
-        @media screen and (max-width:768px) {
-            .html {
-                width: 300px;
-                height: 325px;
-                border-width: 8px;
-                background-size: 100%;
-                margin: 50px auto;
-                clear: both;
-            }
-            .css {
-                margin: 25px auto;
-                width: 300px;
-                height: 325px;
-                border-width: 8px;
-                background-size: 70%;
-                clear: both;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="banners">
-            <a href="_html/index.html" class="htmllink">
-                <div class="html"></div>
-            </a>
-            <a href="_css/index.html">
-                <div class="css"></div class="csslink">
-            </a>
-        </div>
+    <div class="banners">
+        <a href="_html/index.html">
+            <div class="html banner"></div>
+        </a>
+        <a href="_css/index.html">
+            <div class="css banner"></div>
+        </a>
+        <a href="_css/index.html">
+            <div class="js banner"></div>
+        </a>
     </div>
+    <script>
+        // const image_div = ['.html', '.css'];
+        // for (const iter of image_div) {
+        //     document.querySelector(iter).style.height = `${screen.availHeight-50}px`;
+        // }
+    </script>
 </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 사용하기</title>
+</head>
+<body>
+    <h1>
+        jQuery를 사용하는 방법은 부트스트랩처럼 CDN를 이용하거나 라이브러리 파일을 src로 로딩한 후 script 태그내에 작성하면 된다.
+    </h1>
+    <ul>
+        <li>
+            CDN: Content Delivery Network: "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" 를 주로 사용함
+        </li>
+        <li>
+            다운로드는 jquery.com에서 소스파일을 다운로드 받을 수 있다.
+        </li>
+        <li>
+            자바스크립트 라이브러리이기 때문에 script 태그내에서만 사용가능하다.
+        </li>
+        <li>
+            부트스트랩5 부터는 jQuery를 사용하지 않으므로 만약 사용한다면 별도로 파일을 추가해야 함
+        </li>
+        <li>
+            jQuery가 Document영역에서 주로 실행되다 보니 최초 Document를 모두 로딩한 후 실행한다라는 함수내부에서 사용하는 것이 일반적이다.
+        </li>
+    </ul>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="../resources/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // jQuery를 안전하게 사용하려는 방식
+        });
+        
+        $(function () {
+            // document ready 메서드의 축약
+        })
+
+        $(() => {
+            // document ready 메서드의 축약
+            console.log(document.getElementsByTagName('ul'));
+            console.log($('ul'));
+        });
+    </script>
+</body>
+</html>

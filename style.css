@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: auto;
+    background-color: #ddd;
+}
+html,body {
+    height: 100%;
+}
+.banners {
+    width: 1023px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100%;
+}
+.banner {
+    border-width: 0 10px;
+    border-style: solid;
+    width: 333px;
+    height: 100%;
+    background-color: #eee;
+    background-repeat: no-repeat;
+    float: left;
+    transition: 0.5s;
+    transform: skewX(-8deg);
+}
+.html {
+    border-color: orangered;
+    background-image: url(images/HTML5_Logo.svg);
+    background-size: 150%;
+    transition-property: all;
+    background-position: center center;
+}
+.css {
+    border-color: blue;
+    background-image: url(images/CSS3_logo.svg);
+    background-size: 106.25%;
+    background-position: center center;
+}
+.js {
+    border-color:rgb(224, 190, 0);
+    background-image: url(images/JS_logo.svg);
+    background-size: 140%;
+    background-position: 75% 50%;
+}
+.html:hover {
+    background-color: orange;
+}
+.css:hover {
+    background-color: lightskyblue;
+}
+.js:hover {
+    background-color: gold;
+}
+@media screen and (max-width:1123px) {
+    html,body {
+        height: auto;
+    }
+
+    .banners {
+        width: 810px;
+        height: 400px;
+    }
+    .banner {
+        margin: 0 10px;
+        width: 250px;
+        height: 300px;
+        transform: none;
+        border-width: 8px;
+        transition: none;
+    }
+    .html {
+        background-size: 100%;
+    }
+    .css {
+        background-size: 70%;
+    }
+    .js {
+        background-size: 100%;
+        background-position: 75% 100%;
+    }
+}
+@media screen and (max-width:768px) {
+
+    .banners{
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0%;
+        left: 0%;
+        transform: translate(0);
+    }
+    .banner {
+        margin: 50px auto;
+        float: none;
+    }
+    .html {
+        background-size: 100%;
+    }
+    .css {
+        background-size: 70%;
+    }
+}
