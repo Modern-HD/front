@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>형제 탐색</title>
+</head>
+<body>
+    <h1>
+        선택된 태그를 기준으로 prvious와 next 개념으로 구성
+    </h1>
+    <ul>
+        <li>
+            siblings(): 모든 형제 태그, siblings('tag'): 형재 태그 들 중 지목한 tag들만 선택
+        </li>
+        <li>
+            prev(): 바로 앞에 오는 태그
+        </li>
+        <li>
+            prevAll(): 앞에 오는 형제태그 모두, prevAll('tag'): 앞에 오는 형제 태그 중 지목한 tag들만
+        </li>
+        <li>
+            prevUntil('tag'): 앞에 오는 형제태그 중 지목한 tag(미포함) 사이에 있는 태그들만
+        </li>
+        <li>
+            next(), nextAll(),nextAll('tag'), nextUntil('tag')는 정확하게 prev 메서드들과 방향기준으로 반대개념
+        </li>
+    </ul>
+</body>
+</html>
