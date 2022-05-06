@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Getter, Setter</title>
+</head>
+<body>
+    <h1>
+        HTML 요소 가져오기(GET), 넣기(SET)
+    </h1>
+    <ul>
+        <li>
+            html(), text(), val() => innerHTML, innerText, value
+        </li>
+        <li>
+            html('html syntax'), text('string'), val('value') => innerHTML = 'html syntax', innerText = 'string', value = 'value'
+        </li>
+        <li>
+            attr('attribute name', 'value') => setAttribute('attribute names','value')
+        </li>
+        <li>
+            다중입력시 파라미터를 객체로 선언하여 사용
+            $("#w3s").attr({ "href" : "https://www.w3schools.com/jquery/", "title" : "W3Schools jQuery Tutorial"});
+        </li>
+        <li>
+            attr('attribute') => getAttribute('attribute name')
+        </li>
+        <li>
+            css('property name', 'value') => style.propertyName = 'value', setProperty('property name', 'value')
+        </li>
+        <li>
+            css('property name') => style.propertyName, style.getPropertyValue('property name')
+        </li>
+        <li>
+            다중선언: $("p").css({"background-color": "yellow", "font-size": "200%"}); 
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS를 위한 class 속성 메서드</title>
+</head>
+<body>
+    <h1>
+        class 속성은 주로 css를 위해 정의되므로 전용 메서드들이 있으면 편하다
+    </h1>
+    <ul>
+        <li>
+            addClass(): 기존 클래스 속성값에 추가, 없으면 생성, 여러개 동시 생성 가능
+        </li>
+        <li>
+            removeClass("classNameValue classNameValue ..."): 일치하는 클래스값을 제거, 여러개 동시 제거 가능
+        </li>
+        <li>
+            toggleClass("classNameValue classNameValue ..."): 일치하는 클래스 값이 있으면 제거, 없으면 생성, 여러개 toggle 가능
+        </li>
+    </ul>
+</body>
+</html>
