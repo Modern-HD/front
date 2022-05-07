@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on() method</title>
+</head>
+<body>
+    <h1>
+        on('event', 'target selector', 'binding data', callback function, map)
+    </h1>
+    <ul>
+        <li>
+            'event': 이벤트 종류를 문자열로 출력
+        </li>
+        <li>
+            'target selecotr': 이벤트를 부여할 최종 target을 css selector로 지정
+        </li>
+        <li>
+            'binding data': callback function에 전달할 데이터
+        </li>
+        <li>
+            callback function: 콜백함수의 이름 또는 익명함수 선언문
+        </li>
+        <li id="except">
+            map: 자주사용하지 않으므로 pass => 추후 예시를 찾아서 학습해보시길...
+        </li>
+    </ul>
+    <script src="../resources/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('ul').append('<li><button type="button" id="newBtn">동적으로 만든버튼</button>');
+        });
+        // $('#newBtn').on('click',function(){
+        //     alert('동적으로 만든버튼 클릭!');
+        // });
+
+        // document.addEventListener('click', function(e) {
+        //     if(e.target.id == 'newBtn') {
+        //         alert('click!!!!');
+        //     }
+        // })
+        
+        function alertMaker(obj){
+            const dataObj = obj.data; //파라미터 이름.data.전달된keyName
+            console.log(dataObj);
+            // param을 이용하여 실행
+            alert('동적으로 만든 버튼 클릭!');
+            $('#'+dataObj+'').css('color', 'red').css('text-decoration', 'line-through');
+        }
+
+        const dataObj = {k: 'button', v: 'event'}; // 추후에 동적으로 만들어지는 데이터라고 가정
+        function getParamValue(){
+            console.log($('ul, li').last().prev().attr('id'));
+            return $('ul, li').last().prev().attr('id');
+        }
+        
+        $(document).on('click', '#newBtn', {idVal:getParamValue()}, alertMaker);
+
+        // $(document).on('click', '#newBtn',function(){
+        //     alert('동적으로 만든 버튼 클릭!');
+        //     let targetId = $('ul li').last().prev().attr('id');
+        //     // console.log(targetId);
+        //     $('#'+targetId+'').css('color', 'red').css('text-decoration', 'line-through');
+        // });
+
+
+    </script>
+</body>
+</html>

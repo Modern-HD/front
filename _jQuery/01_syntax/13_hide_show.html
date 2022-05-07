@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide, Show Effect Method</title>
+</head>
+<body>
+    <h1>
+        대상 엘리먼트를 숨기고 나타내는 효과는 자주 사용되므로 기억해 놓으면 편리하다
+    </h1>
+    <ul>
+        <li>
+            target.hide(): target 숨기기, target.hide(milliseconds):
+            milliseconds동안 사라짐을 진행, target.hide(milliseconds, callback function): callback function을 호출할 수 있다.
+        </li>
+        <li>
+            target.show(), target.show(milliseconds), target.show(milliseconds, callback function): hide()메서드와 반대로 나타나게 함
+        </li>
+        <li>
+            target.toggle(), target.toggle(milliseconds), target.toggle(milliseconds, callback function): target이 있으면 사라지게 하고 없으면 나타나게 하는 메서드
+        </li>
+        <li>
+            target.fadeIn(), target.fadeIn('keyword'), target.fadeIn(milliseconds): 천천히 나타나게 하는 효과 메서드
+        </li>
+        <li>
+            target.fadeToggle(), target.fadeToggle('keyword'), target.fadeToggle(milliseconds): toggle을 천천히 진행하는 메서드
+        </li>
+        <li>
+            keyword value: 'slows', 'fast'
+        </li>
+        <li>
+            fade 메서드는 진행속도 값 뒤에 최종 목표 투명도(0~1)값도 넣을 수 있다.: EX) target.fadeIn('slow, 03')
+        </li>
+        <li>
+            slideDown(), SlideUp(), slideToggle(): 슬라이딩 효과를 부여하는 메서드
+        </li>
+        <li>
+            슬라이드 관련 메서드와 콜백함수 파라미터를 가질 수 있다.: ex)slide down(speed, callback function)
+        </li>
+    </ul>
+    <h1>
+        Effect 메서드들은 jQuery slim 버전에는 미포함
+    </h1>
+</body>
+</html>
