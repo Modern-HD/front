@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Ajax Method</title>
+</head>
+<body>
+    <h1>
+        ajax 관련 다양한 메서드가 있지만 $.ajax()를 가장 많이 사용한다.
+    </h1>
+    <ul>
+        <li>
+            사용 방법 및 파라미터의 구조만 알면 다양한 전송에 일괄적으로 사용할 수 있기 때문
+        </li>
+        <li>
+            $.ajax({key: value, key: value, ...}); 형태를 갖고 있음
+        </li>
+        <li>
+            파라미터 객체에 사용될 key들도 많지만 사용하는 것은 한정적
+        </li>
+        <li>
+            KeyName =>
+            <ol>
+                <li>
+                    url: 전송방법 => 'get'(default), 'post', 'put', 'patch', 'delete': 대소문자 구분하지 않음
+                </li>
+                <li>
+                    dataType: 전송할 데이터의 타입 => 'application/json' 등
+                </li>
+                <li>
+                    data: 전송할 데이터 => JSON.strigify(object), js object 등
+                </li>
+                <li>
+                    contentType: 서버로 전송할 데이터형식 => "application/x-www-form-urlencoded"
+                </li>
+                <li>
+                    success(result, status, xhr): function{code...} 실행 후 성공한 결과 및 실행할 익명 함수 지정: {result: 서버에서 온 결과값, status: 진행상태결과, xhr: 비동기통신의 응답값}
+                </li>
+                <li>
+                    error: function(msg, status, xhr){code...} => 에러상황 발생시 실행할 익명 함수 지정
+                </li>
+            </ol>
+        </li>
+        <li>
+            success와 error, 무조건 실행의 상황을 처리할 수 있는 메서드가 존재하여 체이닝을 통해 구현할 수도 있다.
+        </li>
+        <h1>
+            ajax 메서드들은 jQuery slim 버전에는 미포함
+        </h1>
+        <button type="button">jsonplaceholer로부터 데이터 가져오기</button>
+        <script src="../resources/jquery-3.6.0.min.js"></script>
+        <script>
+            $(function(){
+                $('button').on('click',function(){
+                    $.ajax({
+                        url: 'https://jsonplaceholder.typicode.com/albums',
+                        // success: function(result){
+                        //     console.log('result');
+                        // },
+                        // error: function(error) {
+                        //     console.log(error);
+                        // }
+                    }).done((result)=>{
+                        console.log(result);
+                    }).fail((error)=>{
+                        console.log(error);
+                    }).always((()=>{
+                        console.log('항상 실행되는 영역');
+                    }));
+                })
+            });
+        </script>
+    </ul>
+</body>
+</html>

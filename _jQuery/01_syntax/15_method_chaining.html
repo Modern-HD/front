@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Chaning</title>
+</head>
+<body>
+    <h1>
+        jQuery의 큰 장점중에 하나인 메서드 연결 실행 기법
+    </h1>
+    <ul>
+        <li>
+            편리하고 메서드를 연결하여 실행하는 기법으로 코드의 가독성 및 작성이 쉽다.
+        </li>
+        <li>
+            하지만 앞부분에서 실행된 메서드의 결과(리턴값)에 대한 충분한 이해가 없으면 이어서 연결할 메서드의 적용을 생각해 내기 어렵다.
+        </li>
+        <li>
+            메서드 연결도중 동적으로 변환의 가능성이 있는 대상이 존재하면 실행중에서 대상 객체를 못 찾는 경우도 발생하므로 충분한 테스트와 검증이 이루어져야 한다.
+        </li>
+        <li>
+            아래의 코드처럼 line break를 할 수 있다.
+            <pre>
+                $("#p1").css("color", "red")
+                .slideUp(2000)
+                .slideDown(2000);
+            </pre>
+        </li>
+    </ul>
+    <h1>
+        Effect 메서드들은 jQuery slim 버전에는 미포함
+    </h1>
+</body>
+</html>
